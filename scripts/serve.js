@@ -37,10 +37,26 @@ http
         res.writeHead(404);
         return res.end("not found: " + urlPath);
       }
-      res.writeHead(200, {
+      const headers = {
         "Content-Type": types[path.extname(file)] || "application/octet-stream",
         "Cache-Control": "no-store",
-      });
+        "Accept-Ranges": "bytes",
+      };
+      // Byte ranges, as GitHub Pages serves them: Safari will not play audio or video from
+      // a server that answers a Range request with the whole file.
+      const range = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || "");
+      if (range && (range[1] || range[2])) {
+        let start = range[1] ? Number(range[1]) : data.length - Number(range[2]);
+        let end = range[1] && range[2] ? Math.min(Number(range[2]), data.length - 1) : data.length - 1;
+        start = Math.max(0, start);
+        if (start > end || start >= data.length) {
+          res.writeHead(416, { "Content-Range": `bytes */${data.length}` });
+          return res.end();
+        }
+        res.writeHead(206, Object.assign(headers, { "Content-Range": `bytes ${start}-${end}/${data.length}` }));
+        return res.end(data.subarray(start, end + 1));
+      }
+      res.writeHead(200, headers);
       res.end(data);
     });
   })
