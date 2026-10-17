@@ -14,39 +14,56 @@ const { test, expect, devices } = require("@playwright/test");
 
 const EMULATOR = process.env.EMULATOR === "1" || !!process.env.FIRESTORE_EMULATOR_HOST;
 const PROJECT = "demo-psych251";
-const EXPERIMENT_ID = "framing-demo";
+const EXPERIMENT_ID = "boger2026-e4-pilot-a";
 const FS = `http://localhost:8080/v1/projects/${PROJECT}/databases/(default)/documents`;
 
-async function runThroughExperiment(page) {
+// One choice trial: wait for the options, then press the arrow for the rewarded side
+// (or the other side when `correct` is false).
+async function makeChoice(page, correct) {
+  const trial = page.locator(".e4-trial.e4-revealed");
+  await trial.waitFor({ state: "visible" });
+  const complexPos = await trial.getAttribute("data-complex-position");
+  const rewardCond = await trial.getAttribute("data-reward-condition");
+  const rewarded = rewardCond === "complex" ? complexPos : complexPos === "left" ? "right" : "left";
+  const side = correct ? rewarded : rewarded === "left" ? "right" : "left";
+  await page.keyboard.press(side === "left" ? "ArrowLeft" : "ArrowRight");
+  await trial.waitFor({ state: "detached" });
+}
+
+// Everything up to (not including) the final "Finish" click on the debrief. The robot answers
+// the first learning trial wrong and every other trial right.
+async function playToLastPage(page) {
   // 1. consent
   await page.getByRole("button", { name: "I agree to participate" }).click();
-  // 2. instructions (two pages)
-  await page.locator("#jspsych-instructions-next").click();
-  await page.locator("#jspsych-instructions-next").click();
-  // 3. demographics (SurveyJS)
-  await page.locator('input[type="number"]').fill("34");
-  await page.getByText("Woman", { exact: true }).click();
-  // SurveyJS boolean switches render "Yes" twice once toggled; scope to the question.
-  await page.locator('[data-name="native_english"]').getByText("Yes", { exact: true }).first().click();
-  await page.locator('input[value="Continue"]').click();
-  // 4. framing
-  await page.getByRole("button", { name: "Program A" }).click();
-  // 5. lexical decision: one instructions page, then 8 trials
-  await page.locator("#jspsych-instructions-next").click();
-  for (let i = 0; i < 8; i++) {
-    const stim = page.locator(".stimulus");
-    await stim.waitFor({ state: "visible" });
-    const word = (await stim.textContent()).trim();
-    const realWords = ["TABLE", "GARDEN", "PLANET", "SILVER"];
-    await page.keyboard.press(realWords.includes(word) ? "f" : "j");
-    await stim.waitFor({ state: "detached" });
-  }
-  // 6. feedback
-  await page.locator('input[name="Q0"][value="4"]').check();
-  await page.locator("#jspsych-survey-likert-next").click();
-  await page.locator("textarea").fill("Robot participant says hi.");
-  await page.locator("#jspsych-survey-text-next").click();
-  // 7. debrief
+  // 2. instructions: ENTER
+  await page.locator("#e4-instructions").waitFor({ state: "visible" });
+  await page.keyboard.press("Enter");
+  // 3. 12 learning trials
+  for (let i = 0; i < 12; i++) await makeChoice(page, i !== 0);
+  // 4. break: ENTER
+  await page.locator("#e4-break").waitFor({ state: "visible" });
+  await page.keyboard.press("Enter");
+  // 5. transfer trial
+  await makeChoice(page, true);
+  // 6. questions: "Next" stays hidden until all are answered and 1 + 1 = 2
+  const next = page.getByRole("button", { name: "Next" });
+  await page.locator("#taskGuess").fill("Pick images to earn coins.");
+  await page.locator("#purposeGuess").fill("Robot guess.");
+  await page.locator("#strategyLearn").fill("Robot strategy.");
+  await page.locator("#strategyTransfer").fill("Robot transfer.");
+  await page.locator("#sumCheck").fill("3");
+  await expect(next).toBeHidden();
+  await page.locator("#sumCheck").fill("2");
+  await next.click();
+  // 7. comments page
+  await page.locator("#commentBox").fill("Robot participant says hi.");
+  await page.getByRole("button", { name: "Submit results" }).click();
+  // 8. debrief
+  await page.locator("#e4-debrief").waitFor({ state: "visible" });
+}
+
+async function runThroughExperiment(page) {
+  await playToLastPage(page);
   await page.getByRole("button", { name: "Finish" }).click();
   await expect(page.getByText("All done")).toBeVisible({ timeout: 30000 });
 }
@@ -109,7 +126,11 @@ test.describe("experiment", () => {
     expect(p.status).toBe(200);
     const pdoc = decodeFields(p.body.fields);
     expect(pdoc.completed).toBe(true);
-    expect(["gain", "loss"]).toContain(pdoc.condition);
+    expect(["complex", "simple"]).toContain(pdoc.condition);
+    expect(pdoc.rewardCondition).toBe(pdoc.condition);
+    expect(["shapes,math", "math,shapes"]).toContain(pdoc.blockOrder);
+    expect(pdoc.sumCheck).toBe("2");
+    expect(pdoc.commentText).toBe("Robot participant says hi.");
     expect(pdoc.prolific_pid).toBe("robot123");
     expect(pdoc.n_trials).toBeGreaterThan(10);
     expect(typeof pdoc.full_data).toBe("string");
@@ -122,14 +143,30 @@ test.describe("experiment", () => {
     const docs = (chunks.body.documents || []).map((d) => decodeFields(d.fields));
     expect(docs.length).toBe(pdoc.n_trials);
     const trials = docs.flatMap((d) => d.trials);
-    const framing = trials.find((t) => t.task === "framing");
-    expect(framing.choice).toBe("certain");
-    expect(framing.condition).toBe(pdoc.condition);
-    const ld = trials.filter((t) => t.task === "lexical_decision");
-    expect(ld.length).toBe(8);
-    expect(ld.every((t) => t.correct === true)).toBe(true);
-    const demo = trials.find((t) => t.task === "demographics");
-    expect(demo.response.age).toBe(34);
+    // 12 learning trials of one stimulus type, then 1 transfer trial of the other.
+    const choices = trials.filter((t) => t.task === "choice").sort((a, b) => a.trialID - b.trialID);
+    expect(choices.map((t) => t.trialID)).toEqual([...Array(13).keys()]);
+    const learning = choices.filter((t) => t.blockNum === 0);
+    const transfer = choices.filter((t) => t.blockNum === 1);
+    expect(learning.length).toBe(12);
+    expect(transfer.length).toBe(1);
+    expect(learning.every((t) => t.isTransferTrial === false && t.stimType === pdoc.learningStimType)).toBe(true);
+    expect(transfer[0].isTransferTrial).toBe(true);
+    expect(transfer[0].stimType).toBe(pdoc.transferStimType);
+    expect(learning.filter((t) => t.complexPosition === "left").length).toBe(6);
+    expect(choices.every((t) => t.rewardCondition === pdoc.condition && t.condition === pdoc.condition)).toBe(true);
+    expect(choices.every((t) => ["left", "right"].includes(t.response) && typeof t.rt === "number" && t.rt > 0)).toBe(true);
+    // The robot chose wrong on the first trial only.
+    expect(choices.map((t) => t.gotReward)).toEqual([0, ...Array(12).fill(1)]);
+    expect(choices[12].coinCount).toBe(60);
+    expect(choices.every((t) => typeof t.soundPlayback === "string")).toBe(true);
+    const questions = trials.find((t) => t.task === "questions");
+    expect(questions.taskGuess).toBe("Pick images to earn coins.");
+    expect(questions.sumCheck).toBe("2");
+    const comments = trials.find((t) => t.task === "comments");
+    expect(comments.commentText).toBe("Robot participant says hi.");
+    expect(comments.totalTime).toBeGreaterThan(comments.experimentTime);
+    expect(trials.filter((t) => t.task === "debrief").length).toBe(1);
 
     // Every trial row must carry the same participant id as its participant document,
     // otherwise trials.csv and participants.csv cannot be joined in the analysis.
@@ -164,20 +201,7 @@ test.describe("experiment", () => {
     // Run the real flow up to the last click, then cut the connection before "Finish".
     await page.goto("/?emulator=1");
     await page.waitForFunction(() => window.__saver && window.__saver.uid);
-    await page.getByRole("button", { name: "I agree to participate" }).click();
-    await page.locator("#jspsych-instructions-next").click();
-    await page.locator("#jspsych-instructions-next").click();
-    await page.locator('input[value="Continue"]').click();
-    await page.getByRole("button", { name: "Program B" }).click();
-    await page.locator("#jspsych-instructions-next").click();
-    for (let i = 0; i < 8; i++) {
-      const stim = page.locator(".stimulus");
-      await stim.waitFor({ state: "visible" });
-      await page.keyboard.press("f");
-      await stim.waitFor({ state: "detached" });
-    }
-    await page.locator("#jspsych-survey-likert-next").click();
-    await page.locator("#jspsych-survey-text-next").click();
+    await playToLastPage(page);
     await context.setOffline(true);
     await page.getByRole("button", { name: "Finish" }).click();
     await expect(page.locator("#data-saver-fallback")).toBeVisible({ timeout: 40000 });
