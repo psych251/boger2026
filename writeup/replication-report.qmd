@@ -1,6 +1,6 @@
 ---
-title: "Replication of Problems 1 and 2 of Tversky & Kahneman (1981, *Science*)"
-author: "Your Name (your.email@stanford.edu)"
+title: "Replication of Boger & Firestone (2026), *Nature Human Behavior*"
+author: "Verona Teo (veronat@stanford.edu)"
 date: today
 date-format: long
 format:
@@ -48,9 +48,10 @@ library(tidyverse)
 library(jsonlite)
 
 # Must match EXPERIMENT.id in experiment.js, and the --experiment you passed to the export.
-# Phase 2 runs under its own id, so its data never mix with Phase 1's.
-experiment_id        <- "framing-demo"
-experiment_id_phase2 <- "framing-demo-phase2"
+# Phase 2 runs under its own id, so its data never mix with Phase 1's. During the pilots this
+# points at the pilot's id; switch it to the final id for Phase 1 data collection.
+experiment_id        <- "boger2026-e4-pilot-a"
+experiment_id_phase2 <- "boger2026-e4-phase2"
 ```
 
 ```{r}
@@ -60,31 +61,38 @@ experiment_id_phase2 <- "framing-demo-phase2"
 # statistics table, and the side-by-side figures. Replace these with your original study's
 # values, and say in a comment exactly where in the paper each one comes from.
 #
-# Tversky & Kahneman (1981), Problem 1 (gain frame, N = 152): 72% chose the certain program,
-# 28% the risky one. Problem 2 (loss frame, N = 155): 22% certain, 78% risky. The paper
-# reports percentages, so the counts below are reconstructed from them.
+# Boger & Firestone (2026), Experiment 4 (shapes <-> mathematical expressions). Results, and
+# Methods "Experiment 4": 100 participants completed the study; 2 were excluded for earning the
+# reward on fewer than 6 of 12 learning trials, leaving N = 98. On the single transfer trial,
+# 63 of 98 (64.3%) chose the option consistent with the reward rule they had learned; exact
+# binomial test against 50%, P = .006, 95% CI [54.0%, 73.7%].
+#
+# The split by direction is not reported in the paper. It is counted from the authors' shared
+# data (E04 data_and_analysis/cleaned_data.csv, transfer trials, gotReward by stimType):
+# learned on shapes and tested on math, 40 of 63; learned on math and tested on shapes, 23 of 35.
+# The two rows sum to the paper's 63 of 98.
 original <- tibble(
-  condition = c("gain", "loss"),
-  n         = c(152, 155),
-  risky     = round(c(0.28 * 152, 0.78 * 155))
+  direction = c("Shapes → math", "Math → shapes"),
+  k         = c(40, 23),   # chose the reward-consistent option on the transfer trial
+  n         = c(63, 35)    # analysed participants
 )
-original_p_gain <- original$risky[original$condition == "gain"] / original$n[original$condition == "gain"]
-original_p_loss <- original$risky[original$condition == "loss"] / original$n[original$condition == "loss"]
+original_k <- sum(original$k)   # 63
+original_n <- sum(original$n)   # 98
+original_p <- original_k / original_n
 ```
 
 ::: {.callout-note appearance="simple" icon=false}
 ## Project links
 
-- **Original paper:** Tversky, A., & Kahneman, D. (1981). The framing of decisions and the
-  psychology of choice. *Science, 211*(4481), 453–458. <https://doi.org/10.1126/science.7455683>
+- **Original paper:** Boger, T., & Firestone, C. (2026). Complexity is a unified cognitive kind. *Nature Human Behavior*, 2026. <https://doi.org/10.1038/s41562-026-02502-8>
 - **Preregistration:** [OSF registration](https://osf.io/XXXXX) *(registered YYYY-MM-DD, before final data collection)*
-- **Live experiment:** <https://psych251.github.io/your-repo/> (take the study exactly as participants did)
-- **Repository:** <https://github.com/psych251/your-repo> (experiment code, data, and this report)
+- **Live experiment:** <https://psych251.github.io/boger2026/> 
+- **Repository:** <https://github.com/psych251/boger2026> (experiment code, data, and this report)
 :::
 
 # AI use statement
 
-::: {.callout-tip icon=false}
+<!-- ::: {.callout-tip icon=false}
 ## Guidance
 
 This statement comes first so a reader knows how the work was produced before reading it. Keep
@@ -99,13 +107,13 @@ produced. Include coding assistants (for example Claude Code, Codex, Copilot) an
 assistants. Name the model and version where you know it. "How you checked" is the important
 column: say what you verified yourself, not that the output "looked right". If you used no AI
 tools, replace the table with a sentence saying so.
-:::
+::: -->
 
 | Tool and model | What it was used for | How you checked the output |
 |---|---|---|
-| *e.g., Claude Code (Claude Opus 5)* | *Implemented the experiment from the original Methods section* | *Ran the automated tests; took the study myself; compared every screen with the original materials* |
-| *e.g., Claude Code (Claude Opus 5)* | *Drafted the analysis code* | *Checked the exclusion counts by hand; confirmed the key test matches the preregistration* |
-| *e.g., ChatGPT* | *Comments on my draft of the Introduction (no text generated)* | *Decided which comments to act on and made every change myself; checked any factual claim against the source* |
+| Claude Code (Claude Opus 5.5) | Checked how original study stimulus was selected / generated | Went through original study several times and looked at relevant original code files |
+| Claude Code (Claude Opus 5.5) | Assisted with experiment implementation | Went through original and replicated study code and live experiments several times |
+| Claude Code (Claude Opus 5.5) | Comments on `Methods` section | Went through my report and the original paper and preregistration carefully before taking any suggestions |
 
 I wrote all of the text in this report myself. AI tools were not used to write, rewrite or
 paraphrase it, and were not used to generate, alter, or impute any participant data. I take full
@@ -128,6 +136,16 @@ adapt its code and say so in the caption.
 #| label: analysis-functions
 #| code-summary: "Show the analysis code (shared by Phase 1 and Phase 2)"
 
+# Exclusion thresholds, from the original preregistration (AsPredicted #209989, question 6).
+min_learning_reward <- 0.5   # rewarded on at least 6 of the 12 learning trials (6/12 passes)
+min_rt              <- 200   # trials with a response time below 200 ms are dropped
+
+direction_label <- function(learning_stim) {
+  case_when(learning_stim == "shapes" ~ "Shapes → math",
+            learning_stim == "math"   ~ "Math → shapes")
+}
+direction_levels <- c("Shapes → math", "Math → shapes")
+
 # Load one phase's exported data and apply the exclusion rule. Returns NULL if that phase
 # has not been exported yet, which is how every section below knows to skip itself.
 read_phase <- function(id) {
@@ -138,68 +156,102 @@ read_phase <- function(id) {
   errors_path  <- file.path(dir, "errors.csv")
   errors <- if (file.exists(errors_path)) read_csv(errors_path, show_col_types = FALSE) else tibble()
 
-  complete <- participants |> filter(completed)
+  # Columns the analysis needs, so it still runs if nobody has reached a choice trial yet.
+  for (col in c("task", "gotReward", "isTransferTrial", "rt", "learningStimType")) {
+    if (!col %in% names(trials)) trials[[col]] <- NA
+  }
+  for (col in c("condition", "learningStimType")) {
+    if (!col %in% names(participants)) participants[[col]] <- NA
+  }
 
-  # Exclusion rule: replace with the rule you preregistered. Here: at least 6 of 8
-  # lexical-decision trials correct, and at least one speeded response at all (a session in
-  # which every speeded trial timed out is what a device without a keyboard produces).
-  ld <- trials |>
-    filter(task == "lexical_decision") |>
+  # 1. Incomplete datasets are excluded.
+  complete <- participants |> filter(completed %in% TRUE)
+
+  choices <- trials |>
+    filter(task == "choice", participant_id %in% complete$participant_id) |>
+    mutate(gotReward = as.numeric(gotReward), rt = as.numeric(rt),
+           isTransferTrial = as.logical(isTransferTrial))
+
+  # 2. Learning criterion, scored on all 12 learning trials before any fast trial is dropped (the order the original notebook uses).
+  learning <- choices |>
+    filter(!isTransferTrial) |>
     group_by(participant_id) |>
-    summarise(ld_acc           = mean(as.logical(correct), na.rm = TRUE),
-              ld_all_timed_out = all(as.logical(timed_out)),
-              .groups = "drop")
-  checked <- complete |> left_join(ld, by = "participant_id")
-  keep <- checked |> filter(!is.na(ld_acc), !ld_all_timed_out, ld_acc >= 0.75)
+    summarise(learning_reward = mean(gotReward), .groups = "drop")
+
+  # 3. Trials faster than 200 ms are dropped. Each participant has a single transfer trial, so one whose transfer trial is dropped has no key response and leaves the analysis.
+  transfer <- choices |>
+    filter(isTransferTrial) |>
+    transmute(participant_id, transfer_rt = rt, transfer_reward = gotReward,
+              direction = direction_label(learningStimType))
+
+  checked <- complete |>
+    select(participant_id, condition) |>
+    left_join(learning, by = "participant_id") |>
+    left_join(transfer, by = "participant_id") |>
+    mutate(pass_learning    = !is.na(learning_reward) & learning_reward >= min_learning_reward,
+           pass_transfer_rt = !is.na(transfer_rt) & transfer_rt >= min_rt)
+  keep <- checked |> filter(pass_learning, pass_transfer_rt)
 
   list(participants = participants, trials = trials, errors = errors,
-       complete = complete, keep = keep,
-       n_no_response = sum(checked$ld_all_timed_out %in% TRUE))
+       complete = complete, checked = checked, keep = keep,
+       n_low_learning  = sum(!checked$pass_learning),
+       n_fast_transfer = sum(checked$pass_learning & !checked$pass_transfer_rt),
+       n_fast_learning_trials = sum(!choices$isTransferTrial & choices$rt < min_rt &
+                                    choices$participant_id %in% keep$participant_id, na.rm = TRUE))
 }
 
-# The key comparison's raw counts: how many analysed participants chose the risky program
-# in each frame.
-risky_counts <- function(d) {
-  d$trials |>
-    filter(task == "framing", participant_id %in% d$keep$participant_id) |>
-    group_by(condition) |>
-    summarise(risky = sum(choice == "risky"), n = n(), .groups = "drop")
+# The key comparison's raw counts: of the analysed participants in each transfer direction,
+# how many chose the reward-consistent option on the transfer trial (k) out of how many (n).
+# Same shape as `original` at the top of the file.
+transfer_counts <- function(d) {
+  d$keep |>
+    mutate(direction = factor(direction, levels = direction_levels)) |>
+    group_by(direction, .drop = FALSE) |>
+    summarise(k = sum(transfer_reward), n = n(), .groups = "drop") |>
+    mutate(direction = as.character(direction))
 }
 
-# The key statistic: difference in the proportion choosing the risky program (loss minus
-# gain) with a 95% CI, and the uncorrected chi-square, which is the same test. NULL until
-# both frames have at least one analysed participant.
-diff_ci <- function(counts) {
-  loss <- counts[counts$condition == "loss", ]
-  gain <- counts[counts$condition == "gain", ]
-  if (nrow(loss) == 0 || nrow(gain) == 0) return(NULL)
-  pt <- prop.test(c(loss$risky, gain$risky), c(loss$n, gain$n), correct = FALSE)
-  tibble(N = loss$n + gain$n,
-         estimate = unname(pt$estimate[1] - pt$estimate[2]),
-         ci_low = pt$conf.int[1], ci_high = pt$conf.int[2],
-         statistic = unname(pt$statistic), p = pt$p.value)
+# The key statistic: the proportion choosing the reward-consistent option on the transfer
+# trial, pooled over both directions and both reward rules, with its exact (Clopper-Pearson)
+# 95% CI and a two-sided exact binomial test against 50%. This is the original notebook's
+# binom.test(63, 98). NULL until there is at least one analysed participant.
+binom_ci <- function(counts) {
+  k <- sum(counts$k)
+  n <- sum(counts$n)
+  if (n == 0) return(NULL)
+  bt <- binom.test(k, n, p = 0.5, alternative = "two.sided")
+  tibble(N = n, k = k, estimate = k / n,
+         ci_low = bt$conf.int[1], ci_high = bt$conf.int[2], p = bt$p.value)
 }
 
-# Side-by-side figure: any number of studies on the same axes, in the order given.
-prop_ci <- function(x, n) {
-  ci <- prop.test(x, n, correct = FALSE)$conf.int
-  tibble(p = x / n, low = ci[1], high = ci[2])
-}
-comparison_plot <- function(...) {
+# Side-by-side figure: any number of studies on the same axes, in the order given. Each
+# argument is a counts table like `original`. By default the directions are pooled (the key
+# comparison); by_direction = TRUE splits them (exploratory).
+comparison_plot <- function(..., by_direction = FALSE) {
   studies <- list(...)
-  studies <- studies[!map_lgl(studies, ~ is.null(.x) || nrow(.x) == 0)]
-  df <- imap_dfr(studies, ~ mutate(.x, Study = .y)) |>
-    rowwise() |> mutate(prop_ci(risky, n)) |> ungroup() |>
-    mutate(Study = factor(Study, levels = names(studies)), label = sprintf("n = %d", n))
+  studies <- studies[!map_lgl(studies, ~ is.null(.x) || sum(.x$n) == 0)]
+  df <- imap_dfr(studies, function(counts, study) {
+    if (!by_direction) counts <- tibble(direction = "Both directions", k = sum(counts$k), n = sum(counts$n))
+    counts |> filter(n > 0) |> mutate(Study = study)
+  }) |>
+    rowwise() |>
+    mutate(p = k / n,
+           low = binom.test(k, n)$conf.int[1], high = binom.test(k, n)$conf.int[2]) |>
+    ungroup() |>
+    mutate(Study = factor(Study, levels = names(studies)),
+           direction = factor(direction, levels = c("Both directions", direction_levels)),
+           label = sprintf("n = %d", n))
   fills <- setNames(c("grey55", "#1E6E76", "#B8792A")[seq_along(studies)], names(studies))
   dodge <- position_dodge(width = 0.8)
-  ggplot(df, aes(x = condition, y = p, fill = Study)) +
+  ggplot(df, aes(x = direction, y = p, fill = Study)) +
     geom_col(position = dodge, width = 0.75) +
     geom_errorbar(aes(ymin = low, ymax = high), position = dodge, width = 0.2) +
+    geom_hline(yintercept = 0.5, linetype = "dashed", colour = "grey30") +
     geom_text(aes(y = 0.02, label = label), position = dodge, vjust = 0, size = 3, colour = "white") +
     scale_y_continuous(labels = scales::percent, limits = c(0, 1)) +
     scale_fill_manual(values = fills) +
-    labs(x = "Frame", y = "Chose the risky program", fill = NULL) +
+    labs(x = if (by_direction) "Learned on → tested on" else NULL,
+         y = "Chose the reward-consistent option\non the transfer trial", fill = NULL) +
     theme_minimal(base_size = 12) +
     theme(legend.position = "top")
 }
@@ -215,42 +267,89 @@ have_phase2 <- !is.null(phase2)
 #| echo: false
 fmt_row <- function(study, r) {
   if (is.null(r)) {
-    return(tibble(Study = study, N = "", `Effect (loss − gain)` = "not yet collected",
-                  `95% CI` = "", `χ²(1)` = "", p = ""))
+    return(tibble(Study = study, N = "", `Reward-consistent choices` = "not yet collected",
+                  `95% CI` = "", p = ""))
   }
   tibble(Study = study, N = as.character(r$N),
-         `Effect (loss − gain)` = sprintf("%.0f points", 100 * r$estimate),
-         `95% CI` = sprintf("[%.0f, %.0f]", 100 * r$ci_low, 100 * r$ci_high),
-         `χ²(1)` = sprintf("%.2f", r$statistic),
+         `Reward-consistent choices` = sprintf("%d (%.1f%%)", r$k, 100 * r$estimate),
+         `95% CI` = sprintf("[%.1f%%, %.1f%%]", 100 * r$ci_low, 100 * r$ci_high),
          p = format.pval(r$p, digits = 2, eps = 0.001))
 }
 bind_rows(
-  fmt_row("Original", diff_ci(original)),
-  fmt_row("Phase 1: replication", if (have_data) diff_ci(risky_counts(phase1))),
-  fmt_row("Phase 2: extension", if (have_phase2) diff_ci(risky_counts(phase2)))
+  fmt_row("Original", binom_ci(original)),
+  fmt_row("Phase 1: replication", if (have_data) binom_ci(transfer_counts(phase1))),
+  fmt_row("Phase 2: extension", if (have_phase2) binom_ci(transfer_counts(phase2)))
 ) |>
-  knitr::kable(align = "lrlllr",
-               caption = "Key comparison: difference in the percentage of analysed participants choosing the risky program, loss frame minus gain frame.")
+  knitr::kable(align = "lrllr",
+               caption = "Key comparison: analysed participants choosing the reward-consistent option on the transfer trial, both directions pooled. Exact 95% CI; two-sided exact binomial test against 50%.")
 ```
 
 # Phase 1: Replication
 
 ## Introduction
 
-::: {.callout-tip icon=false}
+<!-- ::: {.callout-tip icon=false}
 ## Guidance
 
 One or two paragraphs, no abstract and no literature review: that is in the original paper.
 Say what the original study found, which specific finding you are replicating, and why it
 matters to you. Write the Introduction and Methods in the past tense, even though you write
 them before collecting data.
-:::
+::: -->
+
+**My Research Interests**
+
+I'm interested in the role of abstraction in human cognition, and in particular, in language. 
+Boger & Firestone (2026) explore the idea that there is a shared representation of complexity across domains, and I wonder whether some of the ideas and methods in this paper could be relevant to understanding people's intuitive judgments of complexity and abstraction in language. 
+I have been thinking a little bit about the relationship between complexity and abstraction, such that while complexity seems like a component of abstractness, there are many other factors that contribute to how abstract something is. 
+And while we might think about the abstractness of a drawing in one way, it is unclear whether people think about it in the same way as they do, for example, an explanation or a mathematical concept. 
+So, I think this paper will be a good starting point for thinking about different kinds of abstract representations across domains.
+
+
+**Original Experiments and Findings**
+
+The authors of the original paper conducted a suite of experiments to test whether there is a shared representation of complexity across domains (e.g., visual, auditory, linguistic, mathematical, tactile).
+In one set of experiments (Experiments 1-7), they used a learning transfer paradigm in which participants chose between simple and complex stimuli in order to test whether learned associations with complexity transfer to a novel stimulus class. 
+They found that the reward rule people learned in one domain transfers to an unseen domain.
+For example, in Experiment 4, 64.3% of participants transferred the rule between shapes and mathematical expressions (p=0.006 in exact binomial test, N=98, 95% CI [54.0%, 73.7%]).
+<!-- , and that transfer rates differed across domain pairings. <removed because the wording suggests that they conducted a stat test to test the differences across experiments, which I don't think they did.> -->
+They also found that such transfer occurs automatically (Experiment 8), and that there were stable individual differences in aesthetic judgments of complexity across different types of information (Experiment 9).
+
+
+**Stimuli and Procedure**
+
+In this project, I focused on Experiment 4, which is a reward-learning task consisting of two parts. 
+In the first part of the study (learning phase), participants completed 12 trials in which they chose between a simple and complex stimulus (e.g., a shape with few smooth edges vs. one with many sharp edges), shown on the left and right sides of the screen. 
+They were rewarded for consistently choosing either the simple or complex option, i.e., they learned which type of stimulus was worth more points (with the correct one being randomly assigned to each participant).
+If they chose the correct option, a coin would drop into a piggy bank with a 'ding' sound and they would earn 5 points; if they chose the incorrect option, they would hear a 'buzz' sound and earn 0 points.
+In the second part (transfer phase), participants completed one trial in which they chose between a simple and complex stimulus of a different domain (e.g., a mathematical expression with one type of operation vs. one with multiple different operations).
+The learning stimulus class was randomly assigned for each participant.
+Participants completed the study by answering a brief survey asking them to describe the task, guess the purpose of the study, describe their strategy in each phase, and complete an attention check.
+
+
+**Challenges**
+
+One potential challenge in replicating this experiment is determining whether the stimuli shown to participants might affect the results. 
+In the original study, the authors randomly selected the simple and complex shape pairings for each participant by using a subset of the full stimulus set. 
+Similarly, the math expressions were generated on each trial for each participant (under some set of constraints).
+Another challenge is that the original effect was somewhat small (it was the smallest out of Experiments 1-4).
+
+
+**Planned Preregistered Analysis / Statistical Tests**
+
+I will likely preregister an exact binomial test to determine whether the proportion of participants matching the learned rule on the transfer trial is above chance.
+
+**Extension**
+
+Some possible extensions of this study are: improving the instruction wording, increasing the sample size, asking participants what they thought the pattern / rule was, changing the mathematical expression stimulus by "normalizing" the visual components more, e.g., by always only showing options that are on one line (no fractions, super/subscripts, etc.), and operationalizing mathematical complexity differently.
+<!-- increasing the number of transfer trials (e.g., to 2 or 3) to see if the finding still holds. -->
+
 
 ## Methods
 
 ### Power analysis
 
-::: {.callout-tip icon=false}
+<!-- ::: {.callout-tip icon=false}
 ## Guidance
 
 Report the original effect size, the sample needed for 80%, 90% and 95% power to detect it,
@@ -262,73 +361,143 @@ produce an underpowered replication. One widely used alternative is to collect 2
 original sample, which gives 80% power to detect an effect the original study had only 33%
 power to detect (Simonsohn, 2015; Experimentology §10.4). Say which approach you used, and
 what the course's participant budget allowed.
-:::
+::: -->
+
+"Overall, 100 participants completed the task. In addition, two participants were excluded for failing to learn the reward rule, and 3 of the 1,274 remaining trials were excluded for speed.  In total, 64.3% of participants transferred the reward rule between the geometric shapes and the mathematical expressions (P = 0.006 in the exact binomial test, N = 98, 95% CI 54.0–73.7%)."
+
+We will recruit $N=145$ participants (after exclusions) because it gives a power of 93% for the original estimate, or about 80% for a 62% rate (i.e., 84% of the original effect), which is a more conservative estimate of the true effect size.
+
 
 ```{r}
 #| label: power
-power_rows <- map_dfr(c(0.80, 0.90, 0.95), function(pw) {
-  n <- power.prop.test(p1 = original_p_gain, p2 = original_p_loss,
-                       power = pw, sig.level = 0.05)$n
-  tibble(power = scales::percent(pw), n_per_group = ceiling(n), n_total = 2 * ceiling(n))
-})
+# Power of the key test (two-sided exact binomial test against 50%, alpha = .05) at sample
+# size n if the true rate of reward-consistent choices is p. Exact power rises in a sawtooth
+# as n grows, so the N needed is the smallest n at which power stays at or above the target
+# for that n and the next 10.
+power_binom <- function(n, p, alpha = 0.05) {
+  k <- 0:n
+  p_values <- vapply(k, function(x) binom.test(x, n, p = 0.5)$p.value, numeric(1))
+  sum(dbinom(k[p_values < alpha], n, p))
+}
+n_needed <- function(p, target, n_range = 20:400) {
+  pw <- vapply(n_range, power_binom, numeric(1), p = p)
+  stays <- vapply(seq_along(n_range), function(i) all(pw[i:min(i + 10, length(pw))] >= target), logical(1))
+  n_range[which(stays)[1]]
+}
 
-original_effect <- original_p_loss - original_p_gain
-two_and_half <- ceiling(2.5 * original$n)
+planned_n <- 145   # planned analysed participants (stopping rule: until 145 pass the exclusions)
 
-knitr::kable(power_rows, col.names = c("Power", "N per frame", "N total"),
-             caption = sprintf(
-               "Sample needed to detect the original effect (risky choice: %.0f%% gain vs %.0f%% loss, a difference of %.0f points), two-sided alpha = .05.",
-               100 * original_p_gain, 100 * original_p_loss, 100 * original_effect))
+# Effects to plan around: the original estimate; a 62% rate, i.e. 12 of the original's 14.3
+# points above chance (84% of the original effect), which the planned N detects with 80% power;
+# and safeguard power (Perugini, Gallucci & Costantini, 2014), the lower bound of the original's
+# two-sided 60% CI.
+safeguard_p <- binom.test(original_k, original_n, conf.level = 0.60)$conf.int[1]
+effects <- tibble(
+  Effect = c(sprintf("Original estimate: %.1f%%", 100 * original_p),
+             sprintf("62%% (%.0f%% of the original effect)", 100 * (0.62 - 0.5) / (original_p - 0.5)),
+             sprintf("Safeguard (lower bound of the original 60%% CI): %.1f%%", 100 * safeguard_p)),
+  p = c(original_p, 0.62, safeguard_p)
+)
+
+effects |>
+  rowwise() |>
+  mutate(`80%` = n_needed(p, 0.80), `90%` = n_needed(p, 0.90), `95%` = n_needed(p, 0.95),
+         `Power at planned N` = scales::percent(power_binom(planned_n, p), accuracy = 1)) |>
+  ungroup() |>
+  select(-p) |>
+  knitr::kable(caption = sprintf(
+    "Analysed N needed for 80%%, 90%% and 95%% power, and power at the planned N = %d, for the two-sided exact binomial test against 50%% (alpha = .05). The original found %d of %d (%.1f%%).",
+    planned_n, original_k, original_n, 100 * original_p))
+
+two_and_half <- ceiling(2.5 * original_n)
 ```
 
-For comparison, 2.5 times the original sample would be `r two_and_half[1]` in the gain frame
-and `r two_and_half[2]` in the loss frame (`r sum(two_and_half)` in total).
 
 ### Planned sample
 
-::: {.callout-tip icon=false}
+<!-- ::: {.callout-tip icon=false}
 ## Guidance
 
 Planned sample size and stopping rule, sampling frame (for example, "US residents on Prolific,
 fluent in English, 18 or older"), known demographics, and any preselection or screening. The
 stopping rule should be data-independent: "collect until N participants pass the exclusion
 criteria below" rather than "until the result is clear".
-:::
+::: -->
+
+We will recruit participants on Prolific. 
+We include participants who are based in the US, fluent in English, have an approval rate over 98%, and have completed at least 200 studies. 
+The planned sample size is 145 participants who pass the exclusion criteria (see the `Analysis plan` section below). 
+The stopping rule is to continue collecting data until 145 participants meet the exclusion criteria.
+
 
 ### Materials
 
-::: {.callout-tip icon=false}
+<!-- ::: {.callout-tip icon=false}
 ## Guidance
 
 All materials. You can quote the original article directly: put the text in quotation marks
 and note that it was followed precisely, or quote it and point out the exceptions. Link to the
 live experiment above rather than pasting screenshots of every screen.
-:::
+::: -->
+
+**Shapes.** The geometric shapes were drawn from Sun & Firestone (2022). There were 60 shapes in total, 30 simple and 30 complex. The simple and complex shapes were shuffled separately and randomly paired together for each participant.
+
+**Mathematical expressions.** "The simple and complex mathematical expressions within each trial contained identical terms, and only differed in their operations. 
+Both expressions contained four unique integers between 11 and 49. 
+The integers were randomly generated, while ensuring they were not divisible by 10 and were not multiples of each other. 
+The simple mathematical expression merely added the four terms together, while the complex one included a variety of operations (namely, exponentiation, multiplication and division). 
+For example, a simple expression might be $17 + 13 + 24 + 31$, and the accompanying  complex expression would be $\frac{17^{13} \times 24}{31}$." 
+The expressions were generated fresh on each trial. 
+
+<!-- "Note that this is just one of many possible ways to operationalize mathematical complexity. 
+We designed our stimuli in this manner because they hold many features constant (including the numbers in each expression and the length of each expression) and vary only in the operations used. 
+However, we think it is likely that mathematical complexity works in other fashions too. 
+For example, perhaps $\sqrt{\pi}$ is more complex than $1 + 1 + 1 − 1$, even though the latter is longer and contains more operations than the former. 
+Still, the former may feel more complex because it is harder to compute (we thank a reviewer for prompting this discussion)." -->
+
 
 ### Procedure
 
-::: {.callout-tip icon=false}
+<!-- ::: {.callout-tip icon=false}
 ## Guidance
 
 As for Materials: quote the original where you can and point out the exceptions. Describe the
 sequence a participant experiences, from consent to debrief, and how long it takes.
-:::
+::: -->
+
+"This experiment tested bidirectional transfer between geometric shapes 
+and mathematical expressions."
+
+"At the start of the experiment, participants were randomly assigned to be rewarded for selecting either the simple stimulus or the complex stimulus on each learning trial. 
+In addition, the learning stimulus class was randomly assigned for each participant (either geometric shapes or [mathematical expressions], with the other stimulus class being the transfer stimulus)."
+
+The study begins with a consent form, followed by instructions for the experiment. 
+Participants then completed 12 learning trials. 
+"On each trial, participants chose between two options on the screen (left or right) and received feedback regarding their choice. 
+If participants chose the correct  option, they  heard  a  'ding'  sound,  and  saw  a  virtual  coin drop into a piggy bank, thus increasing the 'coin bank' by 5 points; 
+if participants chose the incorrect option, they heard a negative buzzer 
+sound, and saw no change in the coin bank." 
+After 12 learning trials, participants were told that the same pattern applies to a new transfer trial, and to take their best guess. 
+"[They] completed a single transfer trial in which a new stimulus class was presented. 
+This key transfer trial was the main target of our analyses."
+The study ends with a brief survey asking participants to describe the task, guess the purpose of the study, describe their strategy in each phase, complete an attention check, and provide feedback about the study. 
+Participants were told what the study was about at the end of the study, before being redirected to Prolific.
+
+The study takes about 4 minutes to complete.
+
 
 ### Analysis plan
 
-::: {.callout-tip icon=false}
+<!-- ::: {.callout-tip icon=false}
 ## Guidance
 
-The analysis strategy, as close to the original as possible: data cleaning rules, exclusion
-rules, covariates, and the model or test. Original papers often do not spell this out; say
-where you had to make a choice and what you chose.
+The analysis strategy, as close to the original as possible: data cleaning rules, exclusion rules, covariates, and the model or test. Original papers often do not spell this out; say where you had to make a choice and what you chose.
 
-**State the key analysis of interest explicitly.** That is the single test your replication
-stands or falls on, and it must match your preregistration. You can pre-specify additional
-analyses here too.
-:::
+**State the key analysis of interest explicitly.** That is the single test your replication stands or falls on, and it must match your preregistration. 
+You can pre-specify additional analyses here too.
+::: -->
 
-**Key analysis of interest.** The proportion of participants choosing the risky program is
+<!-- **Key analysis of interest.** The proportion of participants choosing the risky program is
 higher in the loss frame than in the gain frame, tested with a chi-square test of independence
 on the 2 × 2 table of frame by choice. The effect size is the difference in the proportion
 choosing the risky program (loss minus gain), with a 95% confidence interval.
@@ -336,28 +505,40 @@ choosing the risky program (loss minus gain), with a 95% confidence interval.
 **Exclusions.** Participants are excluded if they did not complete the study, if they answered
 no speeded trial at all (every lexical-decision trial timed out, the signature of a device
 without a keyboard), or if they answered fewer than 6 of the 8 lexical-decision trials
-correctly.
+correctly. -->
+
+**Key analysis of interest.** Whether the proportion of reward-earning answers on the transfer trial is above-chance, tested with an exact binomial probability test (two-sided) against 0.5, $\alpha = 0.05$. The effect size is the proportion of participants choosing the reward-consistent option on the transfer trial, with a 95% confidence interval.
+
+Note: in the original preregistration ([AsPredicted #209989](https://aspredicted.org/7bh9-86xn.pdf)), the authors asked whether the proportion of reward-earning answers on the transfer trial is "above-chance," but in their analysis, they run a two-sided test. We will follow the original analysis and use a two-sided test.
+
+<!-- "If participants who learn that simple (complex) stimuli of one type are worth more points then choose the simple (complex) stimulus of the other type, this would support our hypothesis." -->
+
+
+**Exclusions.** Participants will be excluded if they did not complete the study or earned the reward on less than 50% (fewer than 6 of 12) of the learning trials. We will also exclude trials with a response time below 200 ms (learning accuracy is scored before fast trials are dropped).
+
+
+**Exploratory analyses.** We will also explore whether the proportion of reward-earning answers on the transfer trial differs by transfer direction (shapes to math vs. math to shapes). 
+
 
 ### Differences from the original study
 
-::: {.callout-tip icon=false}
+<!-- ::: {.callout-tip icon=false}
 ## Guidance
 
 Every known difference in sample, setting, procedure, materials, and analysis, one per row.
-Minimizing differences is the goal, but some always remain. For each one, say whether it is
-expected to matter, based on claims in the original article or later research on when the
-effect does and does not appear. The rows below are the demo's real differences and show the
-level of detail expected; replace them with yours.
-:::
+Minimizing differences is the goal, but some always remain. For each one, say whether it is expected to matter, based on claims in the original article or later research on when the effect does and does not appear. 
+The rows below are the demo's real differences and show the level of detail expected; replace them with yours.
+::: -->
 
 | Aspect | Original study | This replication | Expected to matter? |
 |---|---|---|---|
-| Sample | University students in Stanford and British Columbia classrooms | Adults recruited on Prolific | Possibly. Framing effects have been found in both student and general samples, but their size varies across populations. |
-| Setting | Paper questionnaire in class | Online, unsupervised, on the participant's own computer | Unlikely for a single vignette, though attention may be lower online. |
-| Wording | "an unusual Asian disease" | "an unusual disease" | Unlikely. The ethnonym is incidental to the manipulation and dated. |
-| Design | Between subjects: each participant saw one frame | Between subjects, randomly assigned | No. |
-| Response | Circle a program on paper | Click a button | Unlikely. |
-| Other tasks | Problems presented alongside other questionnaire items | Followed by a short lexical-decision task used as an attention check | Unlikely: the check comes after the choice. |
+| Stopping rule | $N=100$ before exclusions | $N=145$ after exclusions | Unlikely; for the original estimate, a sample size of $N=106$ would be needed for 80% power. |
+| Prolific screeners | Not reported (besides "US adults") | Fluent in English, approval rate > 98%, over 200 previous studies completed | Unlikely |
+| Device check | None | Participants must be on a desktop or laptop computer, not a mobile device | Unlikely |
+| Background | Light grey | White | Unlikely |
+| Progress bar | None | Yes, shows progress through the study | Unlikely |
+<!-- | Instructions (typo) | "amswer" | "answer" | No | -->
+
 
 ### Methods addendum (post data collection)
 
@@ -392,29 +573,41 @@ if (!have_data) {
 #| eval: !expr have_data
 # Loaded and excluded by read_phase(), under Key statistics, so Phase 1 and Phase 2 share one
 # exclusion rule.
-participants  <- phase1$participants
-trials        <- phase1$trials
-errors        <- phase1$errors
-complete      <- phase1$complete
-keep          <- phase1$keep
-n_no_response <- phase1$n_no_response
+participants <- phase1$participants
+trials       <- phase1$trials
+errors       <- phase1$errors
+complete     <- phase1$complete
+checked      <- phase1$checked
+keep         <- phase1$keep
 ```
 
 ```{r}
 #| label: funnel
 #| eval: !expr have_data
-funnel_levels <- c("Started", "Completed", "Passed exclusion criteria")
-bind_rows(
-  participants |> mutate(step = "Started"),
-  complete     |> mutate(step = "Completed"),
-  keep         |> mutate(step = "Passed exclusion criteria")
+# Attrition and exclusion by transfer direction. Participants who left before the experiment
+# assigned them a direction are counted under "Not assigned".
+funnel_levels <- c("Started", "Completed", "Passed the learning criterion",
+                   "Transfer response at least 200 ms (analysed)")
+with_direction <- function(ids) {
+  participants |>
+    filter(participant_id %in% ids) |>
+    mutate(direction = coalesce(direction_label(learningStimType), "Not assigned"))
+}
+funnel <- bind_rows(
+  with_direction(participants$participant_id) |> mutate(step = funnel_levels[1]),
+  with_direction(complete$participant_id)     |> mutate(step = funnel_levels[2]),
+  with_direction(checked$participant_id[checked$pass_learning]) |> mutate(step = funnel_levels[3]),
+  with_direction(keep$participant_id)         |> mutate(step = funnel_levels[4])
 ) |>
-  mutate(step = factor(step, levels = funnel_levels)) |>
-  count(step, condition, .drop = FALSE) |>
-  pivot_wider(names_from = condition, values_from = n, values_fill = 0) |>
+  mutate(step = factor(step, levels = funnel_levels),
+         direction = factor(direction, levels = c(direction_levels, "Not assigned"))) |>
+  count(step, direction, .drop = FALSE) |>
+  pivot_wider(names_from = direction, values_from = n, values_fill = 0)
+if (all(funnel$`Not assigned` == 0)) funnel$`Not assigned` <- NULL
+funnel |>
   mutate(Total = rowSums(across(-step))) |>
   rename(Step = step) |>
-  knitr::kable(caption = "Participants at each step, by frame. Differences between frames in attrition or exclusion are a threat to validity and should be discussed.")
+  knitr::kable(caption = "Participants at each step, by transfer direction (the stimulus class learned on, then tested on). Differences between directions in attrition or exclusion are a threat to validity and should be discussed.")
 ```
 
 ```{r}
@@ -422,35 +615,18 @@ bind_rows(
 #| eval: !expr have_data
 #| echo: false
 #| results: asis
-cat(sprintf("Of %d participants who started, %d completed the study and %d met the exclusion criteria.",
-            nrow(participants), nrow(complete), nrow(keep)))
-if (n_no_response > 0) {
-  cat(sprintf(" %d completed session(s) contained no response to any speeded trial and were excluded on that basis.",
-              n_no_response))
+cat(sprintf(paste0(
+  "Of %d participants who started, %d completed the study. Exclusions among them: %d for ",
+  "earning the reward on fewer than 6 of 12 learning trials, and %d for a transfer response ",
+  "faster than %d ms. Analysed: %d."),
+  nrow(participants), nrow(complete), phase1$n_low_learning, phase1$n_fast_transfer,
+  min_rt, nrow(keep)))
+if (phase1$n_fast_learning_trials > 0) {
+  cat(sprintf(" A further %d learning trial(s) from analysed participants were faster than %d ms and dropped; they do not enter the key test.",
+              phase1$n_fast_learning_trials, min_rt))
 }
 if (nrow(keep) == 0) cat(" No participants remain for analysis yet, so the results below are empty.")
 cat("\n")
-```
-
-```{r}
-#| label: demographics
-#| eval: !expr have_data
-demo <- trials |>
-  filter(task == "demographics", participant_id %in% keep$participant_id) |>
-  mutate(resp = map(response, ~ fromJSON(.x))) |>
-  transmute(
-    participant_id,
-    age    = map_dbl(resp, ~ as.numeric(.x$age %||% NA)),
-    gender = map_chr(resp, ~ as.character(.x$gender %||% NA))
-  )
-
-if (nrow(demo) > 0) {
-  demo |>
-    summarise(N = n(), `Mean age` = round(mean(age, na.rm = TRUE), 1),
-              `SD age` = round(sd(age, na.rm = TRUE), 1),
-              `Age not given` = sum(is.na(age))) |>
-    knitr::kable(caption = "Age of the analysed sample.")
-}
 ```
 
 #### Deviations from the preregistered plan
@@ -479,21 +655,17 @@ the data beyond that.
 ```{r}
 #| label: confirmatory
 #| eval: !expr have_data
-framing <- trials |>
-  filter(task == "framing", participant_id %in% keep$participant_id) |>
-  select(participant_id, condition, choice)
-risky <- risky_counts(phase1)
-tab <- table(Frame = framing$condition, Choice = framing$choice)
+# Key analysis: two-sided exact binomial test of the number of analysed participants who chose
+# the reward-consistent option on the transfer trial, against 50%, both directions and both
+# reward rules pooled (as in the original, binom.test(63, 98)).
+counts <- transfer_counts(phase1)
+k <- sum(counts$k)
+n <- sum(counts$n)
 
-if (all(dim(tab) == c(2, 2))) {
-  # No continuity correction, so this test and the effect-size interval below agree: the
-  # uncorrected 2 x 2 chi-square is the same test as the two-proportion comparison.
-  print(tab)
-  print(chisq.test(tab, correct = FALSE))
+if (n > 0) {
+  print(binom.test(k, n, p = 0.5, alternative = "two.sided"))
 } else {
-  message("Chi-square not run: the frame-by-choice table is ", paste(dim(tab), collapse = " x "),
-          ". It needs both frames and both choices; with ", nrow(framing),
-          " participant(s) in the analysis set this is expected.")
+  message("Binomial test not run: no participants in the analysis set yet.")
 }
 ```
 
@@ -503,27 +675,28 @@ if (all(dim(tab) == c(2, 2))) {
 ## Guidance
 
 Judge the replication on effect sizes, not only on whether the key test is significant. Compare
-the replication estimate and its interval with the original: does the interval exclude zero, and
-does it include the original estimate? A significant result much smaller than the original, or
-a non-significant result whose interval still includes the original effect, are both
+the replication estimate and its interval with the original: does the interval exclude chance
+(50%), and does it include the original estimate? A significant result much smaller than the
+original, or a non-significant result whose interval still includes the original effect, are both
 informative and should be reported as such (Experimentology §3.2).
 :::
 
 ```{r}
 #| label: comparison
 #| eval: !expr have_data
-orig <- diff_ci(original)
-rep  <- diff_ci(risky)
+orig <- binom_ci(original)
+rep  <- binom_ci(counts)
 
 if (!is.null(rep)) {
   bind_rows(orig |> mutate(Study = "Original"), rep |> mutate(Study = "Phase 1: replication")) |>
     transmute(Study, N,
-              `Difference (loss − gain)` = sprintf("%.0f points", 100 * estimate),
-              `95% CI` = sprintf("[%.0f, %.0f]", 100 * ci_low, 100 * ci_high),
+              `Reward-consistent choices` = sprintf("%d (%.1f%%)", k, 100 * estimate),
+              `Above chance` = sprintf("%+.1f points", 100 * (estimate - 0.5)),
+              `95% CI` = sprintf("[%.1f%%, %.1f%%]", 100 * ci_low, 100 * ci_high),
               p = format.pval(p, digits = 2, eps = 0.001)) |>
-    knitr::kable(caption = "Effect size: difference in the percentage choosing the risky program.")
+    knitr::kable(caption = "Effect size: percentage choosing the reward-consistent option on the transfer trial, and its distance above chance (50%). Exact 95% CI.")
 } else {
-  message("Replication effect size not computed yet: need at least one analysed participant in each frame.")
+  message("Replication effect size not computed yet: need at least one analysed participant.")
 }
 ```
 
@@ -533,11 +706,11 @@ if (!is.null(rep)) {
 #| echo: false
 #| results: asis
 if (!is.null(rep)) {
-  excludes_zero <- rep$ci_low > 0 | rep$ci_high < 0
-  includes_orig <- orig$estimate >= rep$ci_low & orig$estimate <= rep$ci_high
+  excludes_chance <- rep$ci_low > 0.5 | rep$ci_high < 0.5
+  includes_orig   <- orig$estimate >= rep$ci_low & orig$estimate <= rep$ci_high
   cat(sprintf(
-    "The replication's 95%% interval %s zero and %s the original estimate of %.0f points. ",
-    if (excludes_zero) "excludes" else "includes",
+    "The replication's 95%% interval %s chance (50%%) and %s the original estimate of %.1f%%. ",
+    if (excludes_chance) "excludes" else "includes",
     if (includes_orig) "includes" else "does not include",
     100 * orig$estimate))
   cat("These two facts are the starting point for the summary in the Discussion, not the conclusion.\n")
@@ -579,10 +752,10 @@ caption. If the original reported no variability, say so rather than leaving it 
 ```{r}
 #| label: fig-comparison
 #| eval: !expr have_data
-#| fig-cap: "Percentage choosing the risky program in each frame, original study and Phase 1 replication. Error bars are 95% confidence intervals."
-#| fig-width: 7
+#| fig-cap: "Percentage of analysed participants choosing the reward-consistent option on the transfer trial, both directions pooled: original study (Boger & Firestone, 2026, Experiment 4; 63 of 98) and Phase 1 replication. Error bars are exact 95% confidence intervals; the dashed line is chance (50%)."
+#| fig-width: 5
 #| fig-height: 4
-comparison_plot(Original = original, `Phase 1: replication` = risky)
+comparison_plot(Original = original, `Phase 1: replication` = counts)
 ```
 
 ### Exploratory analyses
@@ -595,26 +768,67 @@ they generate hypotheses rather than test them.
 :::
 
 ```{r}
-#| label: exploratory-rt
+#| label: exploratory-direction
 #| eval: !expr have_data
-ld <- trials |>
-  filter(task == "lexical_decision", participant_id %in% keep$participant_id) |>
-  mutate(correct = as.logical(correct), is_word = as.logical(is_word), rt = as.numeric(rt)) |>
-  filter(correct, !is.na(rt))
+# Transfer by direction (learned on shapes and tested on math, or the reverse). Exploratory:
+# no test is run, and the original paper does not report this split; the original counts are
+# from the authors' shared data (see the original-study chunk at the top).
+by_direction <- bind_rows(
+  original |> mutate(Study = "Original"),
+  counts   |> mutate(Study = "Phase 1: replication")
+) |>
+  filter(n > 0) |>
+  rowwise() |>
+  mutate(ci = list(binom.test(k, n)$conf.int)) |>
+  ungroup()
 
-if (nrow(ld) > 0) {
-  ld |>
-    group_by(`Real word` = is_word) |>
-    summarise(`Mean RT (ms)` = round(mean(rt)), `SD (ms)` = round(sd(rt)), Trials = n(), .groups = "drop") |>
-    knitr::kable(caption = "Exploratory: lexical-decision response times, correct trials only.")
-} else {
-  message("No correct lexical-decision trials with a response time yet.")
-}
+by_direction |>
+  transmute(Study, Direction = direction, N = n,
+            `Reward-consistent choices` = sprintf("%d (%.1f%%)", k, 100 * k / n),
+            `95% CI` = map_chr(ci, ~ sprintf("[%.1f%%, %.1f%%]", 100 * .x[1], 100 * .x[2]))) |>
+  knitr::kable(caption = "Exploratory: reward-consistent choices on the transfer trial by direction (the stimulus class learned on, then tested on). Exact 95% CIs.")
+```
+
+```{r}
+#| label: fig-direction
+#| eval: !expr have_data
+#| fig-cap: "Exploratory: reward-consistent choices on the transfer trial by direction, original study (counted from the authors' shared data) and Phase 1 replication. Error bars are exact 95% confidence intervals; the dashed line is chance (50%)."
+#| fig-width: 7
+#| fig-height: 4
+comparison_plot(Original = original, `Phase 1: replication` = counts, by_direction = TRUE)
+```
+
+```{r}
+#| label: learning-phase
+#| eval: !expr have_data
+# Learning-phase performance: proportion of the 12 learning trials rewarded, among completed
+# participants, and among those analysed.
+bind_rows(
+  checked |> mutate(Group = "Completed"),
+  checked |> filter(participant_id %in% keep$participant_id) |> mutate(Group = "Analysed")
+) |>
+  filter(!is.na(learning_reward)) |>
+  group_by(Group = factor(Group, levels = c("Completed", "Analysed"))) |>
+  summarise(N = n(),
+            `Mean rewarded (of 12)` = round(12 * mean(learning_reward), 1),
+            `SD` = round(12 * sd(learning_reward), 1),
+            `Min` = round(12 * min(learning_reward)),
+            .groups = "drop") |>
+  knitr::kable(caption = "Learning trials rewarded, out of 12.")
 ```
 
 ```{r}
 #| label: data-quality
 #| eval: !expr have_data
+# How the feedback sounds were played on choice trials: "webaudio" is the normal route; an
+# "audio-element:..." value means the browser had not unlocked audio and a fallback was used.
+if ("soundPlayback" %in% names(trials)) {
+  trials |>
+    filter(task == "choice", participant_id %in% complete$participant_id) |>
+    count(`Sound playback` = soundPlayback, name = "Trials") |>
+    knitr::kable(caption = "Feedback-sound playback route on choice trials, completed participants.")
+}
+
 if (nrow(errors) > 0) {
   errors |> select(any_of(c("at", "trial_index", "message"))) |> head(20) |>
     knitr::kable(caption = "JavaScript errors reported from participants' browsers.")
@@ -712,49 +926,46 @@ Justify the Phase 2 sample, and **state how you expect the estimate and its prec
 with Phase 1**. For an upgrade, plan the sample around the confidence interval you want; for a
 rescue, around the power to detect the original effect, or the smallest effect you would still
 consider a successful replication; for a scientific extension, around the power to detect the new
-comparison. Set `phase2_n_per_group` in the code below; the table uses Phase 1's estimate if you
+comparison. Set `phase2_n` in the code below; the table uses Phase 1's estimate if you
 have it and the original's otherwise.
 :::
 
 ```{r}
 #| label: phase2-power
-phase2_n_per_group <- 150   # planned analysed participants per condition in Phase 2
+phase2_n <- planned_n   # placeholder: planned analysed participants in Phase 2; set when you plan it
 
-p1_counts <- if (have_data) risky_counts(phase1)
-p1_stats  <- if (have_data) diff_ci(p1_counts)
+p1_stats <- if (have_data) binom_ci(transfer_counts(phase1))
 basis <- if (!is.null(p1_stats)) {
-  list(gain = p1_counts$risky[p1_counts$condition == "gain"] / p1_counts$n[p1_counts$condition == "gain"],
-       loss = p1_counts$risky[p1_counts$condition == "loss"] / p1_counts$n[p1_counts$condition == "loss"],
-       source = "Phase 1")
+  list(p = p1_stats$estimate, source = "Phase 1")
 } else {
-  list(gain = original_p_gain, loss = original_p_loss, source = "the original study")
+  list(p = original_p, source = "the original study")
 }
 
-# Expected 95% CI half-width on the difference at n per condition.
-half_width <- function(n) 1.96 * sqrt(basis$gain * (1 - basis$gain) / n + basis$loss * (1 - basis$loss) / n)
-power_at <- function(n, p1, p2) {
-  tryCatch(power.prop.test(n = n, p1 = p1, p2 = p2, sig.level = 0.05)$power, error = function(e) NA)
+# Expected exact 95% CI half-width at n if the true rate is basis$p.
+half_width <- function(n) {
+  ci <- binom.test(round(basis$p * n), n)$conf.int
+  (ci[2] - ci[1]) / 2
 }
 
 rows <- tibble(
   Study = c(if (!is.null(p1_stats)) "Phase 1 (actual)", "Phase 2 (planned)"),
-  `N analysed` = c(if (!is.null(p1_stats)) p1_stats$N, 2 * phase2_n_per_group),
-  `95% CI half-width` = c(if (!is.null(p1_stats)) sprintf("±%.0f points", 100 * (p1_stats$ci_high - p1_stats$ci_low) / 2),
-                          sprintf("±%.0f points (expected)", 100 * half_width(phase2_n_per_group)))
+  `N analysed` = c(if (!is.null(p1_stats)) p1_stats$N, phase2_n),
+  `95% CI half-width` = c(if (!is.null(p1_stats)) sprintf("±%.1f points", 100 * (p1_stats$ci_high - p1_stats$ci_low) / 2),
+                          sprintf("±%.1f points (expected)", 100 * half_width(phase2_n)))
 )
 knitr::kable(rows, caption = sprintf("Precision of the key estimate, Phase 2 expected values based on %s.", basis$source))
 
 tibble(
-  `Effect to detect` = c(sprintf("Original: %.0f points", 100 * (original_p_loss - original_p_gain)),
-                         if (!is.null(p1_stats)) sprintf("Phase 1: %.0f points", 100 * p1_stats$estimate),
-                         sprintf("Half the original: %.0f points", 50 * (original_p_loss - original_p_gain))),
+  `Rate to detect` = c(sprintf("Original: %.1f%%", 100 * original_p),
+                       if (!is.null(p1_stats)) sprintf("Phase 1: %.1f%%", 100 * p1_stats$estimate),
+                       sprintf("Half the original effect: %.1f%%", 100 * (0.5 + (original_p - 0.5) / 2))),
   `Power at planned N` = scales::percent(c(
-    power_at(phase2_n_per_group, original_p_gain, original_p_loss),
-    if (!is.null(p1_stats)) power_at(phase2_n_per_group, basis$gain, basis$loss),
-    power_at(phase2_n_per_group, original_p_gain, original_p_gain + (original_p_loss - original_p_gain) / 2)
+    power_binom(phase2_n, original_p),
+    if (!is.null(p1_stats)) power_binom(phase2_n, p1_stats$estimate),
+    power_binom(phase2_n, 0.5 + (original_p - 0.5) / 2)
   ), accuracy = 1)
 ) |>
-  knitr::kable(caption = sprintf("Power of the Phase 2 key test at %d per condition, two-sided alpha = .05.", phase2_n_per_group))
+  knitr::kable(caption = sprintf("Power of the Phase 2 key test (two-sided exact binomial test against 50%%, alpha = .05) at N = %d analysed.", phase2_n))
 ```
 
 ## Analysis plan
@@ -792,27 +1003,27 @@ if (!have_phase2) {
 ```{r}
 #| label: phase2-results
 #| eval: !expr have_phase2
-p2_counts <- risky_counts(phase2)
-p2_stats  <- diff_ci(p2_counts)
+p2_counts <- transfer_counts(phase2)
+p2_stats  <- binom_ci(p2_counts)
 cat(sprintf("Phase 2: %d started, %d completed, %d analysed.\n",
             nrow(phase2$participants), nrow(phase2$complete), nrow(phase2$keep)))
 if (!is.null(p2_stats)) {
   p_text <- if (p2_stats$p < 0.001) "p < .001" else sprintf("p = %.3f", p2_stats$p)
-  cat(sprintf("Key comparison: %.0f points [%.0f, %.0f], chi-square(1) = %.2f, %s.\n",
-              100 * p2_stats$estimate, 100 * p2_stats$ci_low, 100 * p2_stats$ci_high,
-              p2_stats$statistic, p_text))
+  cat(sprintf("Key comparison: %d of %d (%.1f%%) reward-consistent, 95%% CI [%.1f%%, %.1f%%], exact binomial test against 50%%, %s.\n",
+              p2_stats$k, p2_stats$N, 100 * p2_stats$estimate,
+              100 * p2_stats$ci_low, 100 * p2_stats$ci_high, p_text))
 }
 ```
 
 ```{r}
 #| label: fig-phase2
 #| eval: !expr have_phase2
-#| fig-cap: "Percentage choosing the risky program in each frame: original study, Phase 1 replication, and Phase 2 extension. Error bars are 95% confidence intervals."
-#| fig-width: 8
+#| fig-cap: "Percentage choosing the reward-consistent option on the transfer trial: original study, Phase 1 replication, and Phase 2 extension. Error bars are exact 95% confidence intervals; the dashed line is chance (50%)."
+#| fig-width: 6
 #| fig-height: 4
 comparison_plot(Original = original,
-                `Phase 1: replication` = if (have_data) risky_counts(phase1),
-                `Phase 2: extension` = risky_counts(phase2))
+                `Phase 1: replication` = if (have_data) transfer_counts(phase1),
+                `Phase 2: extension` = p2_counts)
 ```
 
 ## Discussion

@@ -14,7 +14,7 @@
  *                   left/right arrow press, feedback (ding + coin or buzz) on every trial
  *                   including the transfer trial, 500 ms.
  *   Exclusions (original analysis): participants with < 50% gotReward on learning trials;
- *                   trials with rt <= 200 ms.
+ *                   trials with rt below 200 ms (the preregistered wording).
  *
  * Timeline
  *   1. consent           course-wide consent text (required at the start of every study)
