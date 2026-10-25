@@ -36,7 +36,7 @@ window.TEMPLATE_VERSION = "0.1.0";
 const EXPERIMENT = {
   // Firestore path: experiments/<id>/participants/... Change it when you start a new study
   // so pilot data and real data never mix (e.g. "smith2016-pilot-a", "smith2016-final").
-  id: "boger2026-e4-pilot-a",
+  id: "boger2026-e4-pilot-b",
 
   // Trials per Firestore write. 1 = save every trial the moment it finishes (dropouts leave
   // partial data). The free tier allows 20,000 writes/day: with 200 participants x 100 trials
@@ -49,7 +49,7 @@ const EXPERIMENT = {
 
   // Prolific: if set, participants are redirected to Prolific when they finish.
   // Leave empty for local testing or non-Prolific samples.
-  prolific_completion_code: "",
+  prolific_completion_code: "C42QSRTV",
 
   // Contact shown in consent and debrief.
   contact_email: "stanfordpsych251@gmail.com",
