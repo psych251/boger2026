@@ -48,9 +48,8 @@ library(tidyverse)
 library(jsonlite)
 
 # Must match EXPERIMENT.id in experiment.js, and the --experiment you passed to the export.
-# Phase 2 runs under its own id, so its data never mix with Phase 1's. During the pilots this
-# points at the pilot's id; switch it to the final id for Phase 1 data collection.
-experiment_id        <- "boger2026-e4-pilot-a"
+# Phase 2 runs under its own id, so its data never mix with Phase 1's. During the pilots this points at the pilot's id; switch it to the final id for Phase 1 data collection.
+experiment_id        <- "boger2026-e4-pilot-b"
 experiment_id_phase2 <- "boger2026-e4-phase2"
 ```
 
@@ -114,6 +113,7 @@ tools, replace the table with a sentence saying so.
 | Claude Code (Claude Opus 5.5) | Checked how original study stimulus was selected / generated | Went through original study several times and looked at relevant original code files |
 | Claude Code (Claude Opus 5.5) | Assisted with experiment implementation | Went through original and replicated study code and live experiments several times |
 | Claude Code (Claude Opus 5.5) | Comments on `Methods` section | Went through my report and the original paper and preregistration carefully before taking any suggestions |
+| Claude Code (Claude Opus 5.5) | Code for Pilot B participant results | Went through the code and verified the output |
 
 I wrote all of the text in this report myself. AI tools were not used to write, rewrite or
 paraphrase it, and were not used to generate, alter, or impute any participant data. I take full
@@ -538,6 +538,87 @@ The rows below are the demo's real differences and show the level of detail expe
 | Background | Light grey | White | Unlikely |
 | Progress bar | None | Yes, shows progress through the study | Unlikely |
 <!-- | Instructions (typo) | "amswer" | "answer" | No | -->
+
+
+### Pilot B: Prolific ($N=10$)
+
+```{r}
+#| label: pilot-b
+#| echo: false
+#| results: asis
+# Pilot B summary: dropout, attention check, timing and exclusions. Reads the pilot's own
+# export, so it keeps working after `experiment_id` moves to the final id.
+pilot_b_id <- "boger2026-e4-pilot-b"
+# Anonymous participant_ids of your own test runs (e.g. a completed Prolific Preview), which are left out of the summary. Find them by matching identifiers.csv against Prolific.
+pilot_b_test_ids <- c()
+
+pilot_b <- read_phase(pilot_b_id)
+if (is.null(pilot_b)) {
+  cat("::: {.callout-warning icon=false}\n## No Pilot B data yet\n\n",
+      "Export with `npm run export -- --experiment ", pilot_b_id,
+      " --key <path to your key>` and render again.\n:::\n", sep = "")
+} else {
+  pb_p <- pilot_b$participants |> filter(!participant_id %in% pilot_b_test_ids)
+  pb_c <- pb_p |> filter(completed %in% TRUE)
+  pb_checked <- pilot_b$checked |> filter(participant_id %in% pb_c$participant_id)
+  pb_keep    <- pilot_b$keep    |> filter(participant_id %in% pb_c$participant_id)
+
+  # Last screen each non-completer reached, e.g. "instructions" or "choice".
+  left_at <- pilot_b$trials |>
+    filter(participant_id %in% pb_p$participant_id[!pb_p$completed %in% TRUE]) |>
+    group_by(participant_id) |>
+    slice_max(trial_index, n = 1, with_ties = FALSE) |>
+    ungroup() |>
+    count(task)
+  left_at_text <- if (nrow(left_at) == 0) "" else
+    paste(sprintf("%s: %d", left_at$task, left_at$n), collapse = ", ")
+
+  turned_away <- pb_p |> filter(device_supported %in% FALSE)
+  minutes <- as.numeric(difftime(as.POSIXct(pb_c$ended_at, format = "%Y-%m-%dT%H:%M:%OS", tz = "UTC"),
+                                 as.POSIXct(pb_c$started_at, format = "%Y-%m-%dT%H:%M:%OS", tz = "UTC"),
+                                 units = "mins"))
+  learning <- na.omit(pb_checked$learning_reward) * 12
+  sum_ok <- suppressWarnings(as.numeric(pb_c$sumCheck)) %in% 2
+
+  tibble(
+    Measure = c("Sessions started",
+                "Turned away (phone or tablet)",
+                "Left before finishing (desktop)",
+                "Completed",
+                "Answered attention check (\"What is 1 + 1?\") correctly",
+                "Completion time, minutes: mean (range)",
+                "Learning trials rewarded, of 12: mean (range)",
+                "Excluded: fewer than 6 of 12 learning trials rewarded",
+                sprintf("Excluded: transfer response faster than %d ms", min_rt),
+                "Analyzed"),
+    Value = c(nrow(pb_p),
+              nrow(turned_away),
+              sum(!pb_p$completed %in% TRUE & !pb_p$device_supported %in% FALSE),
+              nrow(pb_c),
+              sprintf("%d of %d", sum(sum_ok), nrow(pb_c)),
+              if (length(minutes)) sprintf("%.1f (%.1f-%.1f)", mean(minutes), min(minutes), max(minutes)) else "",
+              if (length(learning)) sprintf("%.1f (%d-%d)", mean(learning), min(learning), max(learning)) else "",
+              sum(!pb_checked$pass_learning),
+              sum(pb_checked$pass_learning & !pb_checked$pass_transfer_rt),
+              nrow(pb_keep)),
+    Note = c("", "", if (nzchar(left_at_text)) paste("Last screen reached:", left_at_text) else "",
+             rep("", 7))
+  ) |>
+    knitr::kable(caption = sprintf("Pilot B (`%s`).", pilot_b_id)) |>
+    print()
+
+  # Free-text answers, to check that participants understood the task.
+  # cat("\n")
+  # pb_c |>
+  #   select(any_of(c("taskGuess", "purposeGuess", "strategyLearn", "strategyTransfer", "commentText"))) |>
+  #   mutate(across(everything(), ~ replace_na(str_squish(as.character(.x)), ""))) |>
+  #   rename(any_of(c(`What was the task?` = "taskGuess", `Purpose?` = "purposeGuess",
+  #                   `Strategy, learning` = "strategyLearn", `Strategy, transfer` = "strategyTransfer",
+  #                   `Comments` = "commentText"))) |>
+  #   knitr::kable(caption = "Pilot B: free-text answers, completed participants.") |>
+  #   print()
+}
+```
 
 
 ### Methods addendum (post data collection)

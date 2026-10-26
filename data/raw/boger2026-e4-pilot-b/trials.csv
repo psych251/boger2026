@@ -1,0 +1,1064 @@
+participant_id,trial_index,task,condition,trial_type,rt,response,time_elapsed,stimulus,plugin_version,experiment_id,rewardCondition,blockOrder,learningStimType,transferStimType,experimentName,experimentVersion,consented,rt_key_duration,blockNum,stimType,simpleStim,complexStim,isTransferTrial,complexPosition,trialID,gotReward,coinCount,soundPlayback,taskGuess,purposeGuess,strategyLearn,strategyTransfer,sumCheck,commentText,experimentTime,totalTime,browserName,browserVersion,displayWindowHeight,displayWindowWidth,displayScreenHeight,displayScreenWidth
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,0,consent,complex,html-button-response,1159,0,1167,"
+      <div class=""consent"">
+        <h2>Consent</h2>
+        <p>By answering the following questions, you are participating in a study being performed by
+        cognitive scientists in the Stanford Department of Psychology. If you have questions about
+        this research, please contact us at <a href=""mailto:stanfordpsych251@gmail.com"">stanfordpsych251@gmail.com</a>.
+        You must be at least 18 years old to participate. Your participation in this research is
+        voluntary. You may decline to answer any or all of the following questions. You may decline
+        further participation, at any time, without adverse consequences. Your anonymity is assured;
+        the researchers who have requested your participation will not receive any personal
+        information about you.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,true,,,,,,,,,,,,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,1,instructions,complex,html-keyboard-response,17075,Enter,18243,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-instructions"">
+        <p>In this experiment, you'll play a simple visual game.</p>
+        <p>In each turn of the game, you'll see two images. You'll be able to choose between them; when you choose an image, you will either get +5 coins, or +0 coins to your coin bank. Your goal is to end the game with as many coins as possible.</p>
+        <p>It's your job to figure out which image will give you more coins to do well at the game. This may not always be easy and it may take a little while to learn, but keep playing the game and trying to earn as many coins as you can.</p>
+        <p>Sometimes, these 'images' will just be mathematical expressions; but the same ideas apply. Note that you don't have to solve these expressions or determine their answers; just look at the problems themselves. Try to figure out which option gives you coins, and choose that.</p>
+        <p>To choose the option on the left, press the <span class=""keyboardkey"">&#8592;</span> key on your keyboard (the left arrow key). To choose the option on the right, press the <span class=""keyboardkey"">&#8594;</span> key on your keyboard (the right arrow key).</p>
+        <p>Click the <span class=""keyboardkey"">ENTER</span> key on your keyboard to begin!</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,2,choice,complex,reward-choice,3471.8,right,22736,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,48+15+38+42,"
+  <span class=""fraction"">
+    <span class=""top"">48<sup>15</sup> &times; 38</span>
+    <span class=""bottom"">42</span>
+  </span>
+  ",false,right,0,1,5,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,3,choice,complex,reward-choice,1720.4,left,25468,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,42+29+46+16,"
+  <span class=""fraction"">
+    <span class=""top"">42<sup>29</sup> &times; 46</span>
+    <span class=""bottom"">16</span>
+  </span>
+  ",false,left,1,1,10,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,4,choice,complex,reward-choice,1091.2,right,27568,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,42+22+36+35,"
+  <span class=""fraction"">
+    <span class=""top"">42<sup>22</sup> &times; 36</span>
+    <span class=""bottom"">35</span>
+  </span>
+  ",false,right,2,1,15,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,5,choice,complex,reward-choice,708.8,right,29293,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,24+45+43+14,"
+  <span class=""fraction"">
+    <span class=""top"">24<sup>45</sup> &times; 43</span>
+    <span class=""bottom"">14</span>
+  </span>
+  ",false,right,3,1,20,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,6,choice,complex,reward-choice,870.2,left,31176,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,36+14+39+46,"
+  <span class=""fraction"">
+    <span class=""top"">36<sup>14</sup> &times; 39</span>
+    <span class=""bottom"">46</span>
+  </span>
+  ",false,left,4,1,25,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,7,choice,complex,reward-choice,728.5,right,32926,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,44+47+25+41,"
+  <span class=""fraction"">
+    <span class=""top"">44<sup>47</sup> &times; 25</span>
+    <span class=""bottom"">41</span>
+  </span>
+  ",false,right,5,1,30,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,8,choice,complex,reward-choice,666,right,34609,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,23+19+16+47,"
+  <span class=""fraction"">
+    <span class=""top"">23<sup>19</sup> &times; 16</span>
+    <span class=""bottom"">47</span>
+  </span>
+  ",false,right,6,1,35,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,9,choice,complex,reward-choice,748.3,left,36359,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,44+35+48+28,"
+  <span class=""fraction"">
+    <span class=""top"">44<sup>35</sup> &times; 48</span>
+    <span class=""bottom"">28</span>
+  </span>
+  ",false,left,7,1,40,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,10,choice,complex,reward-choice,794.1,left,38174,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,26+15+11+32,"
+  <span class=""fraction"">
+    <span class=""top"">26<sup>15</sup> &times; 11</span>
+    <span class=""bottom"">32</span>
+  </span>
+  ",false,left,8,1,45,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,11,choice,complex,reward-choice,1039.4,left,40221,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,24+19+16+23,"
+  <span class=""fraction"">
+    <span class=""top"">24<sup>19</sup> &times; 16</span>
+    <span class=""bottom"">23</span>
+  </span>
+  ",false,left,9,1,50,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,12,choice,complex,reward-choice,757.4,left,41988,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,49+22+43+28,"
+  <span class=""fraction"">
+    <span class=""top"">49<sup>22</sup> &times; 43</span>
+    <span class=""bottom"">28</span>
+  </span>
+  ",false,left,10,1,55,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,13,choice,complex,reward-choice,807.2,right,43800,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,42+16+26+25,"
+  <span class=""fraction"">
+    <span class=""top"">42<sup>16</sup> &times; 26</span>
+    <span class=""bottom"">25</span>
+  </span>
+  ",false,right,11,1,60,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,14,break,complex,html-keyboard-response,5826,Enter,49627,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-break"">
+        <p>Great job! Now, you'll just make one more choice.</p>
+        <p>Even though the options here look a little different, the same pattern that you just learned also applies here.</p>
+        <p>So, based on what you know, take your best guess about which option is worth more points.</p>
+        <p>When you're ready to continue, click the <span class=""keyboardkey"">ENTER</span> key on your keyboard.</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,15,choice,complex,reward-choice,1656.5,right,52301,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,1,shapes,15,25,true,left,12,0,60,webaudio,,,,,,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,16,questions,complex,html-button-response,130200,0,182503,"
+      <div class=""e4-text"" id=""e4-questions"">
+        <p><strong>Please answer the following questions.</strong></p>
+        <p>Please describe the task you had to complete in this study.</p>
+        <textarea id=""taskGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>If you had to guess, what do you think was the purpose of this study?</p>
+        <textarea id=""purposeGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which images to choose in the first part of the experiment?</p>
+        <textarea id=""strategyLearn"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which image to choose in the last trial?</p>
+        <textarea id=""strategyTransfer"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>What is 1 + 1?</p>
+        <textarea id=""sumCheck"" rows=""1"" cols=""20"" placeholder=""Enter your answer here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,I had to choose the images with equations that I thought would give me coins. Then I had to pick from 2 images with no numbers at the end.,To see if math problems would make me pick a certain image.,The image with the number I thought would be largest. Numbers with exponents are usually pretty big.,A coin toss,2,,,,,,,,,
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,17,comments,complex,html-button-response,15903,0,198407,"
+      <div class=""e4-text"" id=""e4-comments"">
+        <p><strong>This is the last page of questions. Do not close your browser! After you submit your results, you will see a short note and then be redirected to Prolific.</strong></p>
+        <p>You can also feel free to leave any comments below about how the experiment went, but that's up to you. Did everything seem to work OK?</p>
+        <textarea id=""commentBox"" rows=""4"" cols=""40"" placeholder=""Enter your comments here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,181335.6,197239.3,Chrome,155,945,1920,1080,1920
+7Mb5AYgwg3VhTfOYXu7kXrb9oLw1-1209c709,18,debrief,complex,html-button-response,11630,0,210039,"
+      <div class=""e4-text"" id=""e4-debrief"">
+        <p>Thank you for participating! This study tested whether people who learn to pick the more complex (or the simpler) option in one kind of image apply the same rule to a different kind. Please do not share this with anyone who might take part.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,0,consent,complex,html-button-response,1608,0,1624,"
+      <div class=""consent"">
+        <h2>Consent</h2>
+        <p>By answering the following questions, you are participating in a study being performed by
+        cognitive scientists in the Stanford Department of Psychology. If you have questions about
+        this research, please contact us at <a href=""mailto:stanfordpsych251@gmail.com"">stanfordpsych251@gmail.com</a>.
+        You must be at least 18 years old to participate. Your participation in this research is
+        voluntary. You may decline to answer any or all of the following questions. You may decline
+        further participation, at any time, without adverse consequences. Your anonymity is assured;
+        the researchers who have requested your participation will not receive any personal
+        information about you.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,true,,,,,,,,,,,,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,1,instructions,complex,html-keyboard-response,35536,Enter,37163,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-instructions"">
+        <p>In this experiment, you'll play a simple visual game.</p>
+        <p>In each turn of the game, you'll see two images. You'll be able to choose between them; when you choose an image, you will either get +5 coins, or +0 coins to your coin bank. Your goal is to end the game with as many coins as possible.</p>
+        <p>It's your job to figure out which image will give you more coins to do well at the game. This may not always be easy and it may take a little while to learn, but keep playing the game and trying to earn as many coins as you can.</p>
+        <p>Sometimes, these 'images' will just be mathematical expressions; but the same ideas apply. Note that you don't have to solve these expressions or determine their answers; just look at the problems themselves. Try to figure out which option gives you coins, and choose that.</p>
+        <p>To choose the option on the left, press the <span class=""keyboardkey"">&#8592;</span> key on your keyboard (the left arrow key). To choose the option on the right, press the <span class=""keyboardkey"">&#8594;</span> key on your keyboard (the right arrow key).</p>
+        <p>Click the <span class=""keyboardkey"">ENTER</span> key on your keyboard to begin!</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,2,choice,complex,reward-choice,1410.2,right,39579,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,27+33+49+45,"
+  <span class=""fraction"">
+    <span class=""top"">27<sup>33</sup> &times; 49</span>
+    <span class=""bottom"">45</span>
+  </span>
+  ",false,left,0,0,0,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,3,choice,complex,reward-choice,792.2,left,41378,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,32+24+46+38,"
+  <span class=""fraction"">
+    <span class=""top"">32<sup>24</sup> &times; 46</span>
+    <span class=""bottom"">38</span>
+  </span>
+  ",false,right,1,0,0,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,4,choice,complex,reward-choice,655.8,right,43055,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,17+23+42+36,"
+  <span class=""fraction"">
+    <span class=""top"">17<sup>23</sup> &times; 42</span>
+    <span class=""bottom"">36</span>
+  </span>
+  ",false,right,2,1,5,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,5,choice,complex,reward-choice,960.6,left,45027,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,11+42+43+36,"
+  <span class=""fraction"">
+    <span class=""top"">11<sup>42</sup> &times; 43</span>
+    <span class=""bottom"">36</span>
+  </span>
+  ",false,left,3,1,10,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,6,choice,complex,reward-choice,521.9,left,46565,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,15+23+27+31,"
+  <span class=""fraction"">
+    <span class=""top"">15<sup>23</sup> &times; 27</span>
+    <span class=""bottom"">31</span>
+  </span>
+  ",false,left,4,1,15,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,7,choice,complex,reward-choice,730.1,left,48311,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,26+43+47+17,"
+  <span class=""fraction"">
+    <span class=""top"">26<sup>43</sup> &times; 47</span>
+    <span class=""bottom"">17</span>
+  </span>
+  ",false,left,5,1,20,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,8,choice,complex,reward-choice,496.4,left,49827,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,25+38+44+28,"
+  <span class=""fraction"">
+    <span class=""top"">25<sup>38</sup> &times; 44</span>
+    <span class=""bottom"">28</span>
+  </span>
+  ",false,left,6,1,25,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,9,choice,complex,reward-choice,740.9,right,51588,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,21+46+34+27,"
+  <span class=""fraction"">
+    <span class=""top"">21<sup>46</sup> &times; 34</span>
+    <span class=""bottom"">27</span>
+  </span>
+  ",false,right,7,1,30,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,10,choice,complex,reward-choice,611.1,right,53223,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,34+46+42+16,"
+  <span class=""fraction"">
+    <span class=""top"">34<sup>46</sup> &times; 42</span>
+    <span class=""bottom"">16</span>
+  </span>
+  ",false,right,8,1,35,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,11,choice,complex,reward-choice,607.4,right,54843,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,29+28+21+12,"
+  <span class=""fraction"">
+    <span class=""top"">29<sup>28</sup> &times; 21</span>
+    <span class=""bottom"">12</span>
+  </span>
+  ",false,right,9,1,40,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,12,choice,complex,reward-choice,589.1,right,56458,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,16+47+34+28,"
+  <span class=""fraction"">
+    <span class=""top"">16<sup>47</sup> &times; 34</span>
+    <span class=""bottom"">28</span>
+  </span>
+  ",false,right,10,1,45,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,13,choice,complex,reward-choice,741.2,left,58224,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,37+11+13+41,"
+  <span class=""fraction"">
+    <span class=""top"">37<sup>11</sup> &times; 13</span>
+    <span class=""bottom"">41</span>
+  </span>
+  ",false,left,11,1,50,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,14,break,complex,html-keyboard-response,3584,Enter,61810,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-break"">
+        <p>Great job! Now, you'll just make one more choice.</p>
+        <p>Even though the options here look a little different, the same pattern that you just learned also applies here.</p>
+        <p>So, based on what you know, take your best guess about which option is worth more points.</p>
+        <p>When you're ready to continue, click the <span class=""keyboardkey"">ENTER</span> key on your keyboard.</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,15,choice,complex,reward-choice,1448.9,right,64273,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,1,shapes,25,30,true,right,12,1,55,webaudio,,,,,,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,16,questions,complex,html-button-response,94910,0,159186,"
+      <div class=""e4-text"" id=""e4-questions"">
+        <p><strong>Please answer the following questions.</strong></p>
+        <p>Please describe the task you had to complete in this study.</p>
+        <textarea id=""taskGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>If you had to guess, what do you think was the purpose of this study?</p>
+        <textarea id=""purposeGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which images to choose in the first part of the experiment?</p>
+        <textarea id=""strategyLearn"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which image to choose in the last trial?</p>
+        <textarea id=""strategyTransfer"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>What is 1 + 1?</p>
+        <textarea id=""sumCheck"" rows=""1"" cols=""20"" placeholder=""Enter your answer here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,i had to chose an option that I think would produce the most coins,I am not really sure,I looked at the algebraic items as the most valuable,the algebraic ones were my 1st choice after 1-2 failures.,2,,,,,,,,,
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,17,comments,complex,html-button-response,14574,0,173762,"
+      <div class=""e4-text"" id=""e4-comments"">
+        <p><strong>This is the last page of questions. Do not close your browser! After you submit your results, you will see a short note and then be redirected to Prolific.</strong></p>
+        <p>You can also feel free to leave any comments below about how the experiment went, but that's up to you. Did everything seem to work OK?</p>
+        <textarea id=""commentBox"" rows=""4"" cols=""40"" placeholder=""Enter your comments here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,I have nothing more to add here.,157562.3,172136,Chrome,155,641,1366,768,1366
+7TahRzJuE7SUkieXkBwUazjNwNu2-523288ed,18,debrief,complex,html-button-response,1579,0,175342,"
+      <div class=""e4-text"" id=""e4-debrief"">
+        <p>Thank you for participating! This study tested whether people who learn to pick the more complex (or the simpler) option in one kind of image apply the same rule to a different kind. Please do not share this with anyone who might take part.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,0,consent,simple,html-button-response,2138,0,2169,"
+      <div class=""consent"">
+        <h2>Consent</h2>
+        <p>By answering the following questions, you are participating in a study being performed by
+        cognitive scientists in the Stanford Department of Psychology. If you have questions about
+        this research, please contact us at <a href=""mailto:stanfordpsych251@gmail.com"">stanfordpsych251@gmail.com</a>.
+        You must be at least 18 years old to participate. Your participation in this research is
+        voluntary. You may decline to answer any or all of the following questions. You may decline
+        further participation, at any time, without adverse consequences. Your anonymity is assured;
+        the researchers who have requested your participation will not receive any personal
+        information about you.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,true,,,,,,,,,,,,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,1,instructions,simple,html-keyboard-response,15709,Enter,17883,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-instructions"">
+        <p>In this experiment, you'll play a simple visual game.</p>
+        <p>In each turn of the game, you'll see two images. You'll be able to choose between them; when you choose an image, you will either get +5 coins, or +0 coins to your coin bank. Your goal is to end the game with as many coins as possible.</p>
+        <p>It's your job to figure out which image will give you more coins to do well at the game. This may not always be easy and it may take a little while to learn, but keep playing the game and trying to earn as many coins as you can.</p>
+        <p>Sometimes, these 'images' will just be mathematical expressions; but the same ideas apply. Note that you don't have to solve these expressions or determine their answers; just look at the problems themselves. Try to figure out which option gives you coins, and choose that.</p>
+        <p>To choose the option on the left, press the <span class=""keyboardkey"">&#8592;</span> key on your keyboard (the left arrow key). To choose the option on the right, press the <span class=""keyboardkey"">&#8594;</span> key on your keyboard (the right arrow key).</p>
+        <p>Click the <span class=""keyboardkey"">ENTER</span> key on your keyboard to begin!</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,2,choice,simple,reward-choice,4157,right,23066,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,32+35+24+15,"
+  <span class=""fraction"">
+    <span class=""top"">32<sup>35</sup> &times; 24</span>
+    <span class=""bottom"">15</span>
+  </span>
+  ",false,right,0,0,0,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,3,choice,simple,reward-choice,1263,right,25360,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,12+31+14+19,"
+  <span class=""fraction"">
+    <span class=""top"">12<sup>31</sup> &times; 14</span>
+    <span class=""bottom"">19</span>
+  </span>
+  ",false,left,1,1,5,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,4,choice,simple,reward-choice,463,left,26842,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,24+35+41+47,"
+  <span class=""fraction"">
+    <span class=""top"">24<sup>35</sup> &times; 41</span>
+    <span class=""bottom"">47</span>
+  </span>
+  ",false,right,2,1,10,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,5,choice,simple,reward-choice,496,right,28360,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,13+34+45+14,"
+  <span class=""fraction"">
+    <span class=""top"">13<sup>34</sup> &times; 45</span>
+    <span class=""bottom"">14</span>
+  </span>
+  ",false,left,3,1,15,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,6,choice,simple,reward-choice,473,left,29850,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,38+39+36+25,"
+  <span class=""fraction"">
+    <span class=""top"">38<sup>39</sup> &times; 36</span>
+    <span class=""bottom"">25</span>
+  </span>
+  ",false,right,4,1,20,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,7,choice,simple,reward-choice,583,left,31445,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,41+46+29+32,"
+  <span class=""fraction"">
+    <span class=""top"">41<sup>46</sup> &times; 29</span>
+    <span class=""bottom"">32</span>
+  </span>
+  ",false,right,5,1,25,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,8,choice,simple,reward-choice,591,left,33047,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,43+44+39+16,"
+  <span class=""fraction"">
+    <span class=""top"">43<sup>44</sup> &times; 39</span>
+    <span class=""bottom"">16</span>
+  </span>
+  ",false,right,6,1,30,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,9,choice,simple,reward-choice,586,right,34650,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,49+11+43+18,"
+  <span class=""fraction"">
+    <span class=""top"">49<sup>11</sup> &times; 43</span>
+    <span class=""bottom"">18</span>
+  </span>
+  ",false,left,7,1,35,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,10,choice,simple,reward-choice,382,left,36050,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,27+42+17+47,"
+  <span class=""fraction"">
+    <span class=""top"">27<sup>42</sup> &times; 17</span>
+    <span class=""bottom"">47</span>
+  </span>
+  ",false,right,8,1,40,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,11,choice,simple,reward-choice,419,right,37486,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,45+24+18+13,"
+  <span class=""fraction"">
+    <span class=""top"">45<sup>24</sup> &times; 18</span>
+    <span class=""bottom"">13</span>
+  </span>
+  ",false,left,9,1,45,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,12,choice,simple,reward-choice,461,right,38955,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,31+13+19+32,"
+  <span class=""fraction"">
+    <span class=""top"">31<sup>13</sup> &times; 19</span>
+    <span class=""bottom"">32</span>
+  </span>
+  ",false,left,10,1,50,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,13,choice,simple,reward-choice,468,right,40437,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,25+19+13+11,"
+  <span class=""fraction"">
+    <span class=""top"">25<sup>19</sup> &times; 13</span>
+    <span class=""bottom"">11</span>
+  </span>
+  ",false,left,11,1,55,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,14,break,simple,html-keyboard-response,3657,Enter,44096,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-break"">
+        <p>Great job! Now, you'll just make one more choice.</p>
+        <p>Even though the options here look a little different, the same pattern that you just learned also applies here.</p>
+        <p>So, based on what you know, take your best guess about which option is worth more points.</p>
+        <p>When you're ready to continue, click the <span class=""keyboardkey"">ENTER</span> key on your keyboard.</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,15,choice,simple,reward-choice,5476,left,50577,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,1,shapes,11,2,true,right,12,1,60,webaudio,,,,,,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,16,questions,simple,html-button-response,118796,0,169376,"
+      <div class=""e4-text"" id=""e4-questions"">
+        <p><strong>Please answer the following questions.</strong></p>
+        <p>Please describe the task you had to complete in this study.</p>
+        <textarea id=""taskGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>If you had to guess, what do you think was the purpose of this study?</p>
+        <textarea id=""purposeGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which images to choose in the first part of the experiment?</p>
+        <textarea id=""strategyLearn"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which image to choose in the last trial?</p>
+        <textarea id=""strategyTransfer"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>What is 1 + 1?</p>
+        <textarea id=""sumCheck"" rows=""1"" cols=""20"" placeholder=""Enter your answer here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,"I had to figure out which type of mathematical expression (or image) would give me coins, vs. which ones wouldn't.",Associations between expressions and shapes ...? How the brain figures out patterns?,"I picked the expression involving division first and was rewarded with a loud incorrect buzzer, so I switched to choosing addition expressions the next round, which consistently rewarded me.","I was told the same pattern applies so I thought about the type of expression the addition expression was vs. the division expression (which also involved exponents). The division expression was more complicated, so I chose the simpler shape vs. the complex shape.",2,,,,,,,,,
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,17,comments,simple,html-button-response,6575,0,175955,"
+      <div class=""e4-text"" id=""e4-comments"">
+        <p><strong>This is the last page of questions. Do not close your browser! After you submit your results, you will see a short note and then be redirected to Prolific.</strong></p>
+        <p>You can also feel free to leave any comments below about how the experiment went, but that's up to you. Did everything seem to work OK?</p>
+        <textarea id=""commentBox"" rows=""4"" cols=""40"" placeholder=""Enter your comments here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,Yes.,167207,173784,Firefox,158,864,1536,864,1536
+9LAyDRVvlLewJV7uGwxhy9TVPwR2-f36303e3,18,debrief,simple,html-button-response,5448,0,181408,"
+      <div class=""e4-text"" id=""e4-debrief"">
+        <p>Thank you for participating! This study tested whether people who learn to pick the more complex (or the simpler) option in one kind of image apply the same rule to a different kind. Please do not share this with anyone who might take part.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+EjVLHTvXVNYvpIlpEZ1Zr2g1wPG2-6aa973f0,0,consent,simple,html-button-response,2546,0,2559,"
+      <div class=""consent"">
+        <h2>Consent</h2>
+        <p>By answering the following questions, you are participating in a study being performed by
+        cognitive scientists in the Stanford Department of Psychology. If you have questions about
+        this research, please contact us at <a href=""mailto:stanfordpsych251@gmail.com"">stanfordpsych251@gmail.com</a>.
+        You must be at least 18 years old to participate. Your participation in this research is
+        voluntary. You may decline to answer any or all of the following questions. You may decline
+        further participation, at any time, without adverse consequences. Your anonymity is assured;
+        the researchers who have requested your participation will not receive any personal
+        information about you.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,true,,,,,,,,,,,,,,,,,,,,,,,,,
+EjVLHTvXVNYvpIlpEZ1Zr2g1wPG2-6aa973f0,1,instructions,simple,html-keyboard-response,9000,Enter,11561,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-instructions"">
+        <p>In this experiment, you'll play a simple visual game.</p>
+        <p>In each turn of the game, you'll see two images. You'll be able to choose between them; when you choose an image, you will either get +5 coins, or +0 coins to your coin bank. Your goal is to end the game with as many coins as possible.</p>
+        <p>It's your job to figure out which image will give you more coins to do well at the game. This may not always be easy and it may take a little while to learn, but keep playing the game and trying to earn as many coins as you can.</p>
+        <p>Sometimes, these 'images' will just be mathematical expressions; but the same ideas apply. Note that you don't have to solve these expressions or determine their answers; just look at the problems themselves. Try to figure out which option gives you coins, and choose that.</p>
+        <p>To choose the option on the left, press the <span class=""keyboardkey"">&#8592;</span> key on your keyboard (the left arrow key). To choose the option on the right, press the <span class=""keyboardkey"">&#8594;</span> key on your keyboard (the right arrow key).</p>
+        <p>Click the <span class=""keyboardkey"">ENTER</span> key on your keyboard to begin!</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,0,consent,complex,html-button-response,1949,0,1958,"
+      <div class=""consent"">
+        <h2>Consent</h2>
+        <p>By answering the following questions, you are participating in a study being performed by
+        cognitive scientists in the Stanford Department of Psychology. If you have questions about
+        this research, please contact us at <a href=""mailto:stanfordpsych251@gmail.com"">stanfordpsych251@gmail.com</a>.
+        You must be at least 18 years old to participate. Your participation in this research is
+        voluntary. You may decline to answer any or all of the following questions. You may decline
+        further participation, at any time, without adverse consequences. Your anonymity is assured;
+        the researchers who have requested your participation will not receive any personal
+        information about you.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,true,,,,,,,,,,,,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,1,instructions,complex,html-keyboard-response,17865,Enter,19826,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-instructions"">
+        <p>In this experiment, you'll play a simple visual game.</p>
+        <p>In each turn of the game, you'll see two images. You'll be able to choose between them; when you choose an image, you will either get +5 coins, or +0 coins to your coin bank. Your goal is to end the game with as many coins as possible.</p>
+        <p>It's your job to figure out which image will give you more coins to do well at the game. This may not always be easy and it may take a little while to learn, but keep playing the game and trying to earn as many coins as you can.</p>
+        <p>Sometimes, these 'images' will just be mathematical expressions; but the same ideas apply. Note that you don't have to solve these expressions or determine their answers; just look at the problems themselves. Try to figure out which option gives you coins, and choose that.</p>
+        <p>To choose the option on the left, press the <span class=""keyboardkey"">&#8592;</span> key on your keyboard (the left arrow key). To choose the option on the right, press the <span class=""keyboardkey"">&#8594;</span> key on your keyboard (the right arrow key).</p>
+        <p>Click the <span class=""keyboardkey"">ENTER</span> key on your keyboard to begin!</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,2,choice,complex,reward-choice,2716.9,right,23551,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,17,25,false,left,0,0,0,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,3,choice,complex,reward-choice,663.9,left,25220,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,30,1,false,left,1,1,5,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,4,choice,complex,reward-choice,479.2,right,26704,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,3,12,false,right,2,1,10,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,5,choice,complex,reward-choice,465.3,left,28173,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,28,9,false,left,3,1,15,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,6,choice,complex,reward-choice,429.9,left,29607,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,1,22,false,left,4,1,20,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,7,choice,complex,reward-choice,376.8,left,30989,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,13,14,false,left,5,1,25,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,8,choice,complex,reward-choice,379.4,right,32373,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,27,29,false,right,6,1,30,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,9,choice,complex,reward-choice,411.7,right,33790,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,11,15,false,right,7,1,35,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,10,choice,complex,reward-choice,383.2,left,35178,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,15,17,false,left,8,1,40,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,11,choice,complex,reward-choice,376.4,right,36560,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,23,21,false,right,9,1,45,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,12,choice,complex,reward-choice,438.2,right,38003,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,9,19,false,right,10,1,50,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,13,choice,complex,reward-choice,399,right,39406,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,21,20,false,right,11,1,55,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,14,break,complex,html-keyboard-response,5285,Enter,44692,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-break"">
+        <p>Great job! Now, you'll just make one more choice.</p>
+        <p>Even though the options here look a little different, the same pattern that you just learned also applies here.</p>
+        <p>So, based on what you know, take your best guess about which option is worth more points.</p>
+        <p>When you're ready to continue, click the <span class=""keyboardkey"">ENTER</span> key on your keyboard.</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,15,choice,complex,reward-choice,2159.8,left,47858,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,1,math,45+49+29+37,"
+  <span class=""fraction"">
+    <span class=""top"">45<sup>49</sup> &times; 29</span>
+    <span class=""bottom"">37</span>
+  </span>
+  ",true,left,12,1,60,webaudio,,,,,,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,16,questions,complex,html-button-response,61731,0,109589,"
+      <div class=""e4-text"" id=""e4-questions"">
+        <p><strong>Please answer the following questions.</strong></p>
+        <p>Please describe the task you had to complete in this study.</p>
+        <textarea id=""taskGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>If you had to guess, what do you think was the purpose of this study?</p>
+        <textarea id=""purposeGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which images to choose in the first part of the experiment?</p>
+        <textarea id=""strategyLearn"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which image to choose in the last trial?</p>
+        <textarea id=""strategyTransfer"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>What is 1 + 1?</p>
+        <textarea id=""sumCheck"" rows=""1"" cols=""20"" placeholder=""Enter your answer here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,I had to click left or right to figure out what would give me the most points,To see if people thought of fractions as kiki or bouba,"One was rounded and one jagged, and when I chose the round one to begin with, I was wrong",It was based off of feel and what felt more challenging,2,,,,,,,,,
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,17,comments,complex,html-button-response,8482,0,118073,"
+      <div class=""e4-text"" id=""e4-comments"">
+        <p><strong>This is the last page of questions. Do not close your browser! After you submit your results, you will see a short note and then be redirected to Prolific.</strong></p>
+        <p>You can also feel free to leave any comments below about how the experiment went, but that's up to you. Did everything seem to work OK?</p>
+        <textarea id=""commentBox"" rows=""4"" cols=""40"" placeholder=""Enter your comments here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,Yep!,107633.6,116116.6,Chrome,155,808,1680,1050,1680
+M90BYSZ0eCgBBTlZ9oyHKwTOa3S2-a0b2df10,18,debrief,complex,html-button-response,3598,0,121673,"
+      <div class=""e4-text"" id=""e4-debrief"">
+        <p>Thank you for participating! This study tested whether people who learn to pick the more complex (or the simpler) option in one kind of image apply the same rule to a different kind. Please do not share this with anyone who might take part.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,0,consent,complex,html-button-response,2441,0,2453,"
+      <div class=""consent"">
+        <h2>Consent</h2>
+        <p>By answering the following questions, you are participating in a study being performed by
+        cognitive scientists in the Stanford Department of Psychology. If you have questions about
+        this research, please contact us at <a href=""mailto:stanfordpsych251@gmail.com"">stanfordpsych251@gmail.com</a>.
+        You must be at least 18 years old to participate. Your participation in this research is
+        voluntary. You may decline to answer any or all of the following questions. You may decline
+        further participation, at any time, without adverse consequences. Your anonymity is assured;
+        the researchers who have requested your participation will not receive any personal
+        information about you.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,true,,,,,,,,,,,,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,1,instructions,complex,html-keyboard-response,14428,Enter,16884,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-instructions"">
+        <p>In this experiment, you'll play a simple visual game.</p>
+        <p>In each turn of the game, you'll see two images. You'll be able to choose between them; when you choose an image, you will either get +5 coins, or +0 coins to your coin bank. Your goal is to end the game with as many coins as possible.</p>
+        <p>It's your job to figure out which image will give you more coins to do well at the game. This may not always be easy and it may take a little while to learn, but keep playing the game and trying to earn as many coins as you can.</p>
+        <p>Sometimes, these 'images' will just be mathematical expressions; but the same ideas apply. Note that you don't have to solve these expressions or determine their answers; just look at the problems themselves. Try to figure out which option gives you coins, and choose that.</p>
+        <p>To choose the option on the left, press the <span class=""keyboardkey"">&#8592;</span> key on your keyboard (the left arrow key). To choose the option on the right, press the <span class=""keyboardkey"">&#8594;</span> key on your keyboard (the right arrow key).</p>
+        <p>Click the <span class=""keyboardkey"">ENTER</span> key on your keyboard to begin!</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,2,choice,complex,reward-choice,5554.1,left,23444,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,9,4,false,left,0,1,5,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,3,choice,complex,reward-choice,2581.3,right,27038,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,16,9,false,right,1,1,10,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,4,choice,complex,reward-choice,1634,right,29700,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,8,5,false,right,2,1,15,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,5,choice,complex,reward-choice,924.9,right,31643,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,14,6,false,right,3,1,20,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,6,choice,complex,reward-choice,753.8,right,33414,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,3,23,false,right,4,1,25,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,7,choice,complex,reward-choice,1226.2,left,35648,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,26,12,false,left,5,1,30,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,8,choice,complex,reward-choice,1043.9,left,37708,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,21,19,false,left,6,1,35,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,9,choice,complex,reward-choice,772,left,39504,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,4,21,false,left,7,1,40,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,10,choice,complex,reward-choice,789.2,left,41314,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,20,17,false,left,8,1,45,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,11,choice,complex,reward-choice,681.9,right,43014,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,10,26,false,right,9,1,50,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,12,choice,complex,reward-choice,1005,left,45037,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,6,14,false,left,10,1,55,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,13,choice,complex,reward-choice,844.2,right,46899,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,11,7,false,right,11,1,60,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,14,break,complex,html-keyboard-response,14850,Enter,61751,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-break"">
+        <p>Great job! Now, you'll just make one more choice.</p>
+        <p>Even though the options here look a little different, the same pattern that you just learned also applies here.</p>
+        <p>So, based on what you know, take your best guess about which option is worth more points.</p>
+        <p>When you're ready to continue, click the <span class=""keyboardkey"">ENTER</span> key on your keyboard.</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,15,choice,complex,reward-choice,6157.4,left,68920,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,1,math,47+32+45+44,"
+  <span class=""fraction"">
+    <span class=""top"">47<sup>32</sup> &times; 45</span>
+    <span class=""bottom"">44</span>
+  </span>
+  ",true,left,12,1,65,webaudio,,,,,,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,16,questions,complex,html-button-response,71763,0,140685,"
+      <div class=""e4-text"" id=""e4-questions"">
+        <p><strong>Please answer the following questions.</strong></p>
+        <p>Please describe the task you had to complete in this study.</p>
+        <textarea id=""taskGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>If you had to guess, what do you think was the purpose of this study?</p>
+        <textarea id=""purposeGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which images to choose in the first part of the experiment?</p>
+        <textarea id=""strategyLearn"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which image to choose in the last trial?</p>
+        <textarea id=""strategyTransfer"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>What is 1 + 1?</p>
+        <textarea id=""sumCheck"" rows=""1"" cols=""20"" placeholder=""Enter your answer here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,Try to earn as many coins as possible,How we make choices,"I just chose one and it gave coins, so I stayed with it.",I picked the math problem that was the most difficult.,2,,,,,,,,,
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,17,comments,complex,html-button-response,3186,0,143873,"
+      <div class=""e4-text"" id=""e4-comments"">
+        <p><strong>This is the last page of questions. Do not close your browser! After you submit your results, you will see a short note and then be redirected to Prolific.</strong></p>
+        <p>You can also feel free to leave any comments below about how the experiment went, but that's up to you. Did everything seem to work OK?</p>
+        <textarea id=""commentBox"" rows=""4"" cols=""40"" placeholder=""Enter your comments here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,138231.3,141417.8,Chrome,155,602,1358,768,1366
+QeTnj0AH4eV1AWxwRsBUPiZkf6C2-4a74b0a0,18,debrief,complex,html-button-response,6351,0,150225,"
+      <div class=""e4-text"" id=""e4-debrief"">
+        <p>Thank you for participating! This study tested whether people who learn to pick the more complex (or the simpler) option in one kind of image apply the same rule to a different kind. Please do not share this with anyone who might take part.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,0,consent,complex,html-button-response,1710,0,1718,"
+      <div class=""consent"">
+        <h2>Consent</h2>
+        <p>By answering the following questions, you are participating in a study being performed by
+        cognitive scientists in the Stanford Department of Psychology. If you have questions about
+        this research, please contact us at <a href=""mailto:stanfordpsych251@gmail.com"">stanfordpsych251@gmail.com</a>.
+        You must be at least 18 years old to participate. Your participation in this research is
+        voluntary. You may decline to answer any or all of the following questions. You may decline
+        further participation, at any time, without adverse consequences. Your anonymity is assured;
+        the researchers who have requested your participation will not receive any personal
+        information about you.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,true,,,,,,,,,,,,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,1,instructions,complex,html-keyboard-response,20977,Enter,22697,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-instructions"">
+        <p>In this experiment, you'll play a simple visual game.</p>
+        <p>In each turn of the game, you'll see two images. You'll be able to choose between them; when you choose an image, you will either get +5 coins, or +0 coins to your coin bank. Your goal is to end the game with as many coins as possible.</p>
+        <p>It's your job to figure out which image will give you more coins to do well at the game. This may not always be easy and it may take a little while to learn, but keep playing the game and trying to earn as many coins as you can.</p>
+        <p>Sometimes, these 'images' will just be mathematical expressions; but the same ideas apply. Note that you don't have to solve these expressions or determine their answers; just look at the problems themselves. Try to figure out which option gives you coins, and choose that.</p>
+        <p>To choose the option on the left, press the <span class=""keyboardkey"">&#8592;</span> key on your keyboard (the left arrow key). To choose the option on the right, press the <span class=""keyboardkey"">&#8594;</span> key on your keyboard (the right arrow key).</p>
+        <p>Click the <span class=""keyboardkey"">ENTER</span> key on your keyboard to begin!</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,2,choice,complex,reward-choice,1632.7,left,25335,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,45+39+46+49,"
+  <span class=""fraction"">
+    <span class=""top"">45<sup>39</sup> &times; 46</span>
+    <span class=""bottom"">49</span>
+  </span>
+  ",false,right,0,0,0,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,3,choice,complex,reward-choice,708.4,right,27051,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,37+45+17+14,"
+  <span class=""fraction"">
+    <span class=""top"">37<sup>45</sup> &times; 17</span>
+    <span class=""bottom"">14</span>
+  </span>
+  ",false,left,1,0,0,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,4,choice,complex,reward-choice,647.6,left,28701,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,23+47+26+15,"
+  <span class=""fraction"">
+    <span class=""top"">23<sup>47</sup> &times; 26</span>
+    <span class=""bottom"">15</span>
+  </span>
+  ",false,right,2,0,0,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,5,choice,complex,reward-choice,290.1,left,30017,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,41+34+37+31,"
+  <span class=""fraction"">
+    <span class=""top"">41<sup>34</sup> &times; 37</span>
+    <span class=""bottom"">31</span>
+  </span>
+  ",false,right,3,0,0,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,6,choice,complex,reward-choice,768.1,left,31801,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,49+32+39+37,"
+  <span class=""fraction"">
+    <span class=""top"">49<sup>32</sup> &times; 39</span>
+    <span class=""bottom"">37</span>
+  </span>
+  ",false,left,4,1,5,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,7,choice,complex,reward-choice,657.9,right,33467,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,11+23+21+45,"
+  <span class=""fraction"">
+    <span class=""top"">11<sup>23</sup> &times; 21</span>
+    <span class=""bottom"">45</span>
+  </span>
+  ",false,right,5,1,10,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,8,choice,complex,reward-choice,687.3,left,35168,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,31+42+35+25,"
+  <span class=""fraction"">
+    <span class=""top"">31<sup>42</sup> &times; 35</span>
+    <span class=""bottom"">25</span>
+  </span>
+  ",false,left,6,1,15,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,9,choice,complex,reward-choice,491.6,right,36684,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,43+45+11+31,"
+  <span class=""fraction"">
+    <span class=""top"">43<sup>45</sup> &times; 11</span>
+    <span class=""bottom"">31</span>
+  </span>
+  ",false,right,7,1,20,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,10,choice,complex,reward-choice,470.4,left,38168,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,23+24+27+43,"
+  <span class=""fraction"">
+    <span class=""top"">23<sup>24</sup> &times; 27</span>
+    <span class=""bottom"">43</span>
+  </span>
+  ",false,left,8,1,25,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,11,choice,complex,reward-choice,579.9,left,39768,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,22+21+47+37,"
+  <span class=""fraction"">
+    <span class=""top"">22<sup>21</sup> &times; 47</span>
+    <span class=""bottom"">37</span>
+  </span>
+  ",false,left,9,1,30,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,12,choice,complex,reward-choice,490.7,right,41268,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,25+35+45+28,"
+  <span class=""fraction"">
+    <span class=""top"">25<sup>35</sup> &times; 45</span>
+    <span class=""bottom"">28</span>
+  </span>
+  ",false,right,10,1,35,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,13,choice,complex,reward-choice,535.4,left,42834,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,12+28+13+38,"
+  <span class=""fraction"">
+    <span class=""top"">12<sup>28</sup> &times; 13</span>
+    <span class=""bottom"">38</span>
+  </span>
+  ",false,left,11,1,40,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,14,break,complex,html-keyboard-response,3356,Enter,46191,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-break"">
+        <p>Great job! Now, you'll just make one more choice.</p>
+        <p>Even though the options here look a little different, the same pattern that you just learned also applies here.</p>
+        <p>So, based on what you know, take your best guess about which option is worth more points.</p>
+        <p>When you're ready to continue, click the <span class=""keyboardkey"">ENTER</span> key on your keyboard.</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,15,choice,complex,reward-choice,865.1,left,48059,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,1,shapes,21,19,true,left,12,1,45,webaudio,,,,,,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,16,questions,complex,html-button-response,39901,0,87962,"
+      <div class=""e4-text"" id=""e4-questions"">
+        <p><strong>Please answer the following questions.</strong></p>
+        <p>Please describe the task you had to complete in this study.</p>
+        <textarea id=""taskGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>If you had to guess, what do you think was the purpose of this study?</p>
+        <textarea id=""purposeGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which images to choose in the first part of the experiment?</p>
+        <textarea id=""strategyLearn"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which image to choose in the last trial?</p>
+        <textarea id=""strategyTransfer"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>What is 1 + 1?</p>
+        <textarea id=""sumCheck"" rows=""1"" cols=""20"" placeholder=""Enter your answer here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,Choose between left or right option (math equations) and choose which one you think would give coins.,I'm not sure.,By trial and error.,I just randomly decided.,2,,,,,,,,,
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,17,comments,complex,html-button-response,10815,0,98777,"
+      <div class=""e4-text"" id=""e4-comments"">
+        <p><strong>This is the last page of questions. Do not close your browser! After you submit your results, you will see a short note and then be redirected to Prolific.</strong></p>
+        <p>You can also feel free to leave any comments below about how the experiment went, but that's up to you. Did everything seem to work OK?</p>
+        <textarea id=""commentBox"" rows=""4"" cols=""40"" placeholder=""Enter your comments here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,Thank you for letting me be part of your research. :),86242.7,97057.8,Chrome,155,911,1920,1080,1920
+UG2thtVDxDWO7adDcwhMSVWWFAt1-33546e07,18,debrief,complex,html-button-response,943,0,99721,"
+      <div class=""e4-text"" id=""e4-debrief"">
+        <p>Thank you for participating! This study tested whether people who learn to pick the more complex (or the simpler) option in one kind of image apply the same rule to a different kind. Please do not share this with anyone who might take part.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,0,consent,simple,html-button-response,1812,0,1961,"
+      <div class=""consent"">
+        <h2>Consent</h2>
+        <p>By answering the following questions, you are participating in a study being performed by
+        cognitive scientists in the Stanford Department of Psychology. If you have questions about
+        this research, please contact us at <a href=""mailto:stanfordpsych251@gmail.com"">stanfordpsych251@gmail.com</a>.
+        You must be at least 18 years old to participate. Your participation in this research is
+        voluntary. You may decline to answer any or all of the following questions. You may decline
+        further participation, at any time, without adverse consequences. Your anonymity is assured;
+        the researchers who have requested your participation will not receive any personal
+        information about you.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,true,,,,,,,,,,,,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,1,instructions,simple,html-keyboard-response,13817,Enter,15801,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-instructions"">
+        <p>In this experiment, you'll play a simple visual game.</p>
+        <p>In each turn of the game, you'll see two images. You'll be able to choose between them; when you choose an image, you will either get +5 coins, or +0 coins to your coin bank. Your goal is to end the game with as many coins as possible.</p>
+        <p>It's your job to figure out which image will give you more coins to do well at the game. This may not always be easy and it may take a little while to learn, but keep playing the game and trying to earn as many coins as you can.</p>
+        <p>Sometimes, these 'images' will just be mathematical expressions; but the same ideas apply. Note that you don't have to solve these expressions or determine their answers; just look at the problems themselves. Try to figure out which option gives you coins, and choose that.</p>
+        <p>To choose the option on the left, press the <span class=""keyboardkey"">&#8592;</span> key on your keyboard (the left arrow key). To choose the option on the right, press the <span class=""keyboardkey"">&#8594;</span> key on your keyboard (the right arrow key).</p>
+        <p>Click the <span class=""keyboardkey"">ENTER</span> key on your keyboard to begin!</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,2,choice,simple,reward-choice,8975.2,left,25794,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,28,13,false,right,0,1,5,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,3,choice,simple,reward-choice,1645.3,left,28463,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,6,22,false,right,1,1,10,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,4,choice,simple,reward-choice,892.5,right,30368,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,18,26,false,left,2,1,15,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,5,choice,simple,reward-choice,574.2,left,31955,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,25,6,false,right,3,1,20,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,6,choice,simple,reward-choice,492.7,left,33460,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,14,30,false,right,4,1,25,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,7,choice,simple,reward-choice,508,right,34981,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,11,7,false,left,5,1,30,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,8,choice,simple,reward-choice,500.2,left,36492,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,2,29,false,right,6,1,35,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,9,choice,simple,reward-choice,475.2,left,37981,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,17,4,false,right,7,1,40,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,10,choice,simple,reward-choice,413.7,right,39406,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,29,9,false,left,8,1,45,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,11,choice,simple,reward-choice,440.3,right,40857,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,4,10,false,left,9,1,50,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,12,choice,simple,reward-choice,472.6,right,42339,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,7,19,false,left,10,1,55,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,13,choice,simple,reward-choice,412,right,43764,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,20,20,false,left,11,1,60,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,14,break,simple,html-keyboard-response,9367,Enter,53137,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-break"">
+        <p>Great job! Now, you'll just make one more choice.</p>
+        <p>Even though the options here look a little different, the same pattern that you just learned also applies here.</p>
+        <p>So, based on what you know, take your best guess about which option is worth more points.</p>
+        <p>When you're ready to continue, click the <span class=""keyboardkey"">ENTER</span> key on your keyboard.</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,15,choice,simple,reward-choice,1380.2,right,55535,,1.0.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,1,math,29+23+33+48,"
+  <span class=""fraction"">
+    <span class=""top"">29<sup>23</sup> &times; 33</span>
+    <span class=""bottom"">48</span>
+  </span>
+  ",true,left,12,1,65,webaudio,,,,,,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,16,questions,simple,html-button-response,63280,0,118829,"
+      <div class=""e4-text"" id=""e4-questions"">
+        <p><strong>Please answer the following questions.</strong></p>
+        <p>Please describe the task you had to complete in this study.</p>
+        <textarea id=""taskGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>If you had to guess, what do you think was the purpose of this study?</p>
+        <textarea id=""purposeGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which images to choose in the first part of the experiment?</p>
+        <textarea id=""strategyLearn"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which image to choose in the last trial?</p>
+        <textarea id=""strategyTransfer"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>What is 1 + 1?</p>
+        <textarea id=""sumCheck"" rows=""1"" cols=""20"" placeholder=""Enter your answer here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,Guessing the shape for the image,absolutely NO IDEA sorry,choose the blobs not the squigglys lol,guess,2,,,,,,,,,
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,17,comments,simple,html-button-response,16527,0,135366,"
+      <div class=""e4-text"" id=""e4-comments"">
+        <p><strong>This is the last page of questions. Do not close your browser! After you submit your results, you will see a short note and then be redirected to Prolific.</strong></p>
+        <p>You can also feel free to leave any comments below about how the experiment went, but that's up to you. Did everything seem to work OK?</p>
+        <textarea id=""commentBox"" rows=""4"" cols=""40"" placeholder=""Enter your comments here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,"yes, thank you for the study!",116854.9,133384.5,Chrome,103,665,1366,768,1366
+cyUvrzYVQ3U40I784yJcVtMPnZm1-20c43aad,18,debrief,simple,html-button-response,5869,0,141244,"
+      <div class=""e4-text"" id=""e4-debrief"">
+        <p>Thank you for participating! This study tested whether people who learn to pick the more complex (or the simpler) option in one kind of image apply the same rule to a different kind. Please do not share this with anyone who might take part.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,0,consent,complex,html-button-response,1865,0,1871,"
+      <div class=""consent"">
+        <h2>Consent</h2>
+        <p>By answering the following questions, you are participating in a study being performed by
+        cognitive scientists in the Stanford Department of Psychology. If you have questions about
+        this research, please contact us at <a href=""mailto:stanfordpsych251@gmail.com"">stanfordpsych251@gmail.com</a>.
+        You must be at least 18 years old to participate. Your participation in this research is
+        voluntary. You may decline to answer any or all of the following questions. You may decline
+        further participation, at any time, without adverse consequences. Your anonymity is assured;
+        the researchers who have requested your participation will not receive any personal
+        information about you.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,true,,,,,,,,,,,,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,1,instructions,complex,html-keyboard-response,26054,Enter,27926,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-instructions"">
+        <p>In this experiment, you'll play a simple visual game.</p>
+        <p>In each turn of the game, you'll see two images. You'll be able to choose between them; when you choose an image, you will either get +5 coins, or +0 coins to your coin bank. Your goal is to end the game with as many coins as possible.</p>
+        <p>It's your job to figure out which image will give you more coins to do well at the game. This may not always be easy and it may take a little while to learn, but keep playing the game and trying to earn as many coins as you can.</p>
+        <p>Sometimes, these 'images' will just be mathematical expressions; but the same ideas apply. Note that you don't have to solve these expressions or determine their answers; just look at the problems themselves. Try to figure out which option gives you coins, and choose that.</p>
+        <p>To choose the option on the left, press the <span class=""keyboardkey"">&#8592;</span> key on your keyboard (the left arrow key). To choose the option on the right, press the <span class=""keyboardkey"">&#8594;</span> key on your keyboard (the right arrow key).</p>
+        <p>Click the <span class=""keyboardkey"">ENTER</span> key on your keyboard to begin!</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,2,choice,complex,reward-choice,5206,left,34162,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,28+11+48+19,"
+  <span class=""fraction"">
+    <span class=""top"">28<sup>11</sup> &times; 48</span>
+    <span class=""bottom"">19</span>
+  </span>
+  ",false,right,0,0,0,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,3,choice,complex,reward-choice,862,left,36034,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,29+42+11+32,"
+  <span class=""fraction"">
+    <span class=""top"">29<sup>42</sup> &times; 11</span>
+    <span class=""bottom"">32</span>
+  </span>
+  ",false,right,1,0,0,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,4,choice,complex,reward-choice,503,left,37545,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,21+38+37+33,"
+  <span class=""fraction"">
+    <span class=""top"">21<sup>38</sup> &times; 37</span>
+    <span class=""bottom"">33</span>
+  </span>
+  ",false,left,2,1,5,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,5,choice,complex,reward-choice,492,left,39058,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,14+34+15+29,"
+  <span class=""fraction"">
+    <span class=""top"">14<sup>34</sup> &times; 15</span>
+    <span class=""bottom"">29</span>
+  </span>
+  ",false,left,3,1,10,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,6,choice,complex,reward-choice,411,left,40476,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,16+43+11+26,"
+  <span class=""fraction"">
+    <span class=""top"">16<sup>43</sup> &times; 11</span>
+    <span class=""bottom"">26</span>
+  </span>
+  ",false,left,4,1,15,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,7,choice,complex,reward-choice,427,right,41906,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,27+33+43+28,"
+  <span class=""fraction"">
+    <span class=""top"">27<sup>33</sup> &times; 43</span>
+    <span class=""bottom"">28</span>
+  </span>
+  ",false,right,5,1,20,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,8,choice,complex,reward-choice,404,left,43320,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,43+41+45+21,"
+  <span class=""fraction"">
+    <span class=""top"">43<sup>41</sup> &times; 45</span>
+    <span class=""bottom"">21</span>
+  </span>
+  ",false,left,6,1,25,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,9,choice,complex,reward-choice,473,right,44809,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,23+15+43+12,"
+  <span class=""fraction"">
+    <span class=""top"">23<sup>15</sup> &times; 43</span>
+    <span class=""bottom"">12</span>
+  </span>
+  ",false,right,7,1,30,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,10,choice,complex,reward-choice,486,left,46300,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,36+45+47+25,"
+  <span class=""fraction"">
+    <span class=""top"">36<sup>45</sup> &times; 47</span>
+    <span class=""bottom"">25</span>
+  </span>
+  ",false,left,8,1,35,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,11,choice,complex,reward-choice,451,right,47757,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,42+47+48+17,"
+  <span class=""fraction"">
+    <span class=""top"">42<sup>47</sup> &times; 48</span>
+    <span class=""bottom"">17</span>
+  </span>
+  ",false,right,9,1,40,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,12,choice,complex,reward-choice,441,left,49214,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,26+28+34+16,"
+  <span class=""fraction"">
+    <span class=""top"">26<sup>28</sup> &times; 34</span>
+    <span class=""bottom"">16</span>
+  </span>
+  ",false,left,10,1,45,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,13,choice,complex,reward-choice,417,right,50642,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,36+17+13+24,"
+  <span class=""fraction"">
+    <span class=""top"">36<sup>17</sup> &times; 13</span>
+    <span class=""bottom"">24</span>
+  </span>
+  ",false,right,11,1,50,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,14,break,complex,html-keyboard-response,9977,Enter,60620,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-break"">
+        <p>Great job! Now, you'll just make one more choice.</p>
+        <p>Even though the options here look a little different, the same pattern that you just learned also applies here.</p>
+        <p>So, based on what you know, take your best guess about which option is worth more points.</p>
+        <p>When you're ready to continue, click the <span class=""keyboardkey"">ENTER</span> key on your keyboard.</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,15,choice,complex,reward-choice,1716,left,63356,,1.0.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,1,shapes,2,5,true,left,12,1,55,webaudio,,,,,,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,16,questions,complex,html-button-response,148961,0,212318,"
+      <div class=""e4-text"" id=""e4-questions"">
+        <p><strong>Please answer the following questions.</strong></p>
+        <p>Please describe the task you had to complete in this study.</p>
+        <textarea id=""taskGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>If you had to guess, what do you think was the purpose of this study?</p>
+        <textarea id=""purposeGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which images to choose in the first part of the experiment?</p>
+        <textarea id=""strategyLearn"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which image to choose in the last trial?</p>
+        <textarea id=""strategyTransfer"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>What is 1 + 1?</p>
+        <textarea id=""sumCheck"" rows=""1"" cols=""20"" placeholder=""Enter your answer here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,I had to choose between two images in order to get coins.,To determine if study takers could figure out which of the two images was the correct one.,"I tried the more simpler looking equation first a few times, and it was wrong so I swapped to the more complicated looking one. That one was correct each time.","It was following the same idea as the first one, so I chose the more 'complex' looking image, the more erratic shape compared to the smoother one.",2,,,,,,,,,
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,17,comments,complex,html-button-response,22509,0,234828,"
+      <div class=""e4-text"" id=""e4-comments"">
+        <p><strong>This is the last page of questions. Do not close your browser! After you submit your results, you will see a short note and then be redirected to Prolific.</strong></p>
+        <p>You can also feel free to leave any comments below about how the experiment went, but that's up to you. Did everything seem to work OK?</p>
+        <textarea id=""commentBox"" rows=""4"" cols=""40"" placeholder=""Enter your comments here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,As far as I could tell yeah.,210447,232956,Firefox,158,919,1920,1080,1920
+g8OFzTv56FWxq9PdnqZaNSmUSkn2-aa4884b3,18,debrief,complex,html-button-response,7374,0,242204,"
+      <div class=""e4-text"" id=""e4-debrief"">
+        <p>Thank you for participating! This study tested whether people who learn to pick the more complex (or the simpler) option in one kind of image apply the same rule to a different kind. Please do not share this with anyone who might take part.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,0,consent,complex,html-button-response,12202,0,12230,"
+      <div class=""consent"">
+        <h2>Consent</h2>
+        <p>By answering the following questions, you are participating in a study being performed by
+        cognitive scientists in the Stanford Department of Psychology. If you have questions about
+        this research, please contact us at <a href=""mailto:stanfordpsych251@gmail.com"">stanfordpsych251@gmail.com</a>.
+        You must be at least 18 years old to participate. Your participation in this research is
+        voluntary. You may decline to answer any or all of the following questions. You may decline
+        further participation, at any time, without adverse consequences. Your anonymity is assured;
+        the researchers who have requested your participation will not receive any personal
+        information about you.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,true,,,,,,,,,,,,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,1,instructions,complex,html-keyboard-response,21710,Enter,33949,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-instructions"">
+        <p>In this experiment, you'll play a simple visual game.</p>
+        <p>In each turn of the game, you'll see two images. You'll be able to choose between them; when you choose an image, you will either get +5 coins, or +0 coins to your coin bank. Your goal is to end the game with as many coins as possible.</p>
+        <p>It's your job to figure out which image will give you more coins to do well at the game. This may not always be easy and it may take a little while to learn, but keep playing the game and trying to earn as many coins as you can.</p>
+        <p>Sometimes, these 'images' will just be mathematical expressions; but the same ideas apply. Note that you don't have to solve these expressions or determine their answers; just look at the problems themselves. Try to figure out which option gives you coins, and choose that.</p>
+        <p>To choose the option on the left, press the <span class=""keyboardkey"">&#8592;</span> key on your keyboard (the left arrow key). To choose the option on the right, press the <span class=""keyboardkey"">&#8594;</span> key on your keyboard (the right arrow key).</p>
+        <p>Click the <span class=""keyboardkey"">ENTER</span> key on your keyboard to begin!</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,2,choice,complex,reward-choice,1923.6,right,36888,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,1,25,false,right,0,1,5,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,3,choice,complex,reward-choice,1312.5,left,39211,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,18,1,false,left,1,1,10,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,4,choice,complex,reward-choice,665.5,right,40894,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,19,10,false,right,2,1,15,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,5,choice,complex,reward-choice,561.5,left,42472,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,30,13,false,left,3,1,20,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,6,choice,complex,reward-choice,589.4,right,44077,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,6,22,false,right,4,1,25,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,7,choice,complex,reward-choice,870.1,left,45960,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,20,30,false,left,5,1,30,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,8,choice,complex,reward-choice,1036.9,right,48013,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,10,23,false,left,6,0,30,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,9,choice,complex,reward-choice,1072.2,left,50103,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,15,6,false,left,7,1,35,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,10,choice,complex,reward-choice,476.8,left,51594,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,26,7,false,left,8,1,40,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,11,choice,complex,reward-choice,1000.8,right,53610,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,4,28,false,right,9,1,45,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,12,choice,complex,reward-choice,615,left,55240,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,5,15,false,right,10,0,45,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,13,choice,complex,reward-choice,612.9,right,56857,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,0,shapes,2,19,false,right,11,1,50,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,14,break,complex,html-keyboard-response,3638,Enter,60497,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-break"">
+        <p>Great job! Now, you'll just make one more choice.</p>
+        <p>Even though the options here look a little different, the same pattern that you just learned also applies here.</p>
+        <p>So, based on what you know, take your best guess about which option is worth more points.</p>
+        <p>When you're ready to continue, click the <span class=""keyboardkey"">ENTER</span> key on your keyboard.</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,15,choice,complex,reward-choice,3179,right,64690,,1.0.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,1,math,32+18+46+22,"
+  <span class=""fraction"">
+    <span class=""top"">32<sup>18</sup> &times; 46</span>
+    <span class=""bottom"">22</span>
+  </span>
+  ",true,left,12,0,50,webaudio,,,,,,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,16,questions,complex,html-button-response,75734,0,140426,"
+      <div class=""e4-text"" id=""e4-questions"">
+        <p><strong>Please answer the following questions.</strong></p>
+        <p>Please describe the task you had to complete in this study.</p>
+        <textarea id=""taskGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>If you had to guess, what do you think was the purpose of this study?</p>
+        <textarea id=""purposeGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which images to choose in the first part of the experiment?</p>
+        <textarea id=""strategyLearn"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which image to choose in the last trial?</p>
+        <textarea id=""strategyTransfer"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>What is 1 + 1?</p>
+        <textarea id=""sumCheck"" rows=""1"" cols=""20"" placeholder=""Enter your answer here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,Press left or right to get the most coins.,Maybe to see which one had the money. A gut feeling.,I guessed when choosing in the first part.,I guessed when choosing.,2,,,,,,,,,
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,17,comments,complex,html-button-response,14782,0,155211,"
+      <div class=""e4-text"" id=""e4-comments"">
+        <p><strong>This is the last page of questions. Do not close your browser! After you submit your results, you will see a short note and then be redirected to Prolific.</strong></p>
+        <p>You can also feel free to leave any comments below about how the experiment went, but that's up to you. Did everything seem to work OK?</p>
+        <textarea id=""commentBox"" rows=""4"" cols=""40"" placeholder=""Enter your comments here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,Experiment went well no issues.,128190.5,142972.8,Chrome,155,633,1366,768,1366
+oG4y7Y09hmNaeBzKsWbumL6WHy12-6ec474ee,18,debrief,complex,html-button-response,2135,0,157348,"
+      <div class=""e4-text"" id=""e4-debrief"">
+        <p>Thank you for participating! This study tested whether people who learn to pick the more complex (or the simpler) option in one kind of image apply the same rule to a different kind. Please do not share this with anyone who might take part.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,0,consent,simple,html-button-response,2432,0,2440,"
+      <div class=""consent"">
+        <h2>Consent</h2>
+        <p>By answering the following questions, you are participating in a study being performed by
+        cognitive scientists in the Stanford Department of Psychology. If you have questions about
+        this research, please contact us at <a href=""mailto:stanfordpsych251@gmail.com"">stanfordpsych251@gmail.com</a>.
+        You must be at least 18 years old to participate. Your participation in this research is
+        voluntary. You may decline to answer any or all of the following questions. You may decline
+        further participation, at any time, without adverse consequences. Your anonymity is assured;
+        the researchers who have requested your participation will not receive any personal
+        information about you.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,true,,,,,,,,,,,,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,1,instructions,simple,html-keyboard-response,16088,Enter,18532,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-instructions"">
+        <p>In this experiment, you'll play a simple visual game.</p>
+        <p>In each turn of the game, you'll see two images. You'll be able to choose between them; when you choose an image, you will either get +5 coins, or +0 coins to your coin bank. Your goal is to end the game with as many coins as possible.</p>
+        <p>It's your job to figure out which image will give you more coins to do well at the game. This may not always be easy and it may take a little while to learn, but keep playing the game and trying to earn as many coins as you can.</p>
+        <p>Sometimes, these 'images' will just be mathematical expressions; but the same ideas apply. Note that you don't have to solve these expressions or determine their answers; just look at the problems themselves. Try to figure out which option gives you coins, and choose that.</p>
+        <p>To choose the option on the left, press the <span class=""keyboardkey"">&#8592;</span> key on your keyboard (the left arrow key). To choose the option on the right, press the <span class=""keyboardkey"">&#8594;</span> key on your keyboard (the right arrow key).</p>
+        <p>Click the <span class=""keyboardkey"">ENTER</span> key on your keyboard to begin!</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,2,choice,simple,reward-choice,1758.6,left,21306,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,42+45+11+31,"
+  <span class=""fraction"">
+    <span class=""top"">42<sup>45</sup> &times; 11</span>
+    <span class=""bottom"">31</span>
+  </span>
+  ",false,left,0,0,0,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,3,choice,simple,reward-choice,1165,right,23488,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,49+27+38+26,"
+  <span class=""fraction"">
+    <span class=""top"">49<sup>27</sup> &times; 38</span>
+    <span class=""bottom"">26</span>
+  </span>
+  ",false,left,1,1,5,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,4,choice,simple,reward-choice,691,right,25190,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,38+35+17+14,"
+  <span class=""fraction"">
+    <span class=""top"">38<sup>35</sup> &times; 17</span>
+    <span class=""bottom"">14</span>
+  </span>
+  ",false,left,2,1,10,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,5,choice,simple,reward-choice,676,left,26876,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,43+39+19+22,"
+  <span class=""fraction"">
+    <span class=""top"">43<sup>39</sup> &times; 19</span>
+    <span class=""bottom"">22</span>
+  </span>
+  ",false,right,3,1,15,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,6,choice,simple,reward-choice,643.5,right,28536,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,18+22+14+15,"
+  <span class=""fraction"">
+    <span class=""top"">18<sup>22</sup> &times; 14</span>
+    <span class=""bottom"">15</span>
+  </span>
+  ",false,left,4,1,20,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,7,choice,simple,reward-choice,528.9,right,30071,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,11+21+36+41,"
+  <span class=""fraction"">
+    <span class=""top"">11<sup>21</sup> &times; 36</span>
+    <span class=""bottom"">41</span>
+  </span>
+  ",false,left,5,1,25,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,8,choice,simple,reward-choice,657.2,left,31753,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,21+14+36+24,"
+  <span class=""fraction"">
+    <span class=""top"">21<sup>14</sup> &times; 36</span>
+    <span class=""bottom"">24</span>
+  </span>
+  ",false,right,6,1,30,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,9,choice,simple,reward-choice,580.9,left,33354,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,13+15+24+44,"
+  <span class=""fraction"">
+    <span class=""top"">13<sup>15</sup> &times; 24</span>
+    <span class=""bottom"">44</span>
+  </span>
+  ",false,right,7,1,35,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,10,choice,simple,reward-choice,482.7,left,34853,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,39+35+26+41,"
+  <span class=""fraction"">
+    <span class=""top"">39<sup>35</sup> &times; 26</span>
+    <span class=""bottom"">41</span>
+  </span>
+  ",false,right,8,1,40,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,11,choice,simple,reward-choice,451.8,left,36333,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,39+28+12+17,"
+  <span class=""fraction"">
+    <span class=""top"">39<sup>28</sup> &times; 12</span>
+    <span class=""bottom"">17</span>
+  </span>
+  ",false,right,9,1,45,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,12,choice,simple,reward-choice,538.1,right,37877,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,29+19+42+39,"
+  <span class=""fraction"">
+    <span class=""top"">29<sup>19</sup> &times; 42</span>
+    <span class=""bottom"">39</span>
+  </span>
+  ",false,left,10,1,50,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,13,choice,simple,reward-choice,457.5,left,39351,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,0,math,29+23+45+39,"
+  <span class=""fraction"">
+    <span class=""top"">29<sup>23</sup> &times; 45</span>
+    <span class=""bottom"">39</span>
+  </span>
+  ",false,right,11,1,55,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,14,break,simple,html-keyboard-response,4919,Enter,44272,"<p class=""e4-title""><strong>Visual game!</strong></p>
+      <div class=""e4-text"" id=""e4-break"">
+        <p>Great job! Now, you'll just make one more choice.</p>
+        <p>Even though the options here look a little different, the same pattern that you just learned also applies here.</p>
+        <p>So, based on what you know, take your best guess about which option is worth more points.</p>
+        <p>When you're ready to continue, click the <span class=""keyboardkey"">ENTER</span> key on your keyboard.</p>
+      </div>",2.2.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,15,choice,simple,reward-choice,960,right,46246,,1.0.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,1,shapes,3,2,true,left,12,1,60,webaudio,,,,,,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,16,questions,simple,html-button-response,24470,0,70718,"
+      <div class=""e4-text"" id=""e4-questions"">
+        <p><strong>Please answer the following questions.</strong></p>
+        <p>Please describe the task you had to complete in this study.</p>
+        <textarea id=""taskGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>If you had to guess, what do you think was the purpose of this study?</p>
+        <textarea id=""purposeGuess"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which images to choose in the first part of the experiment?</p>
+        <textarea id=""strategyLearn"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>How did you decide which image to choose in the last trial?</p>
+        <textarea id=""strategyTransfer"" rows=""2"" cols=""40"" placeholder=""Enter your answer here...""></textarea>
+        <p>What is 1 + 1?</p>
+        <textarea id=""sumCheck"" rows=""1"" cols=""20"" placeholder=""Enter your answer here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,Picking images,pattern recognition,the simpler ones gave me coins,the image was simpler,2,,,,,,,,,
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,17,comments,simple,html-button-response,4546,0,75265,"
+      <div class=""e4-text"" id=""e4-comments"">
+        <p><strong>This is the last page of questions. Do not close your browser! After you submit your results, you will see a short note and then be redirected to Prolific.</strong></p>
+        <p>You can also feel free to leave any comments below about how the experiment went, but that's up to you. Did everything seem to work OK?</p>
+        <textarea id=""commentBox"" rows=""4"" cols=""40"" placeholder=""Enter your comments here...""></textarea>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,68275.5,72822.5,Chrome,156,911,1920,1080,1920
+qdWuTrGGPRPDNNUZmuU27Ma7onT2-caa2aeca,18,debrief,simple,html-button-response,3864,0,79132,"
+      <div class=""e4-text"" id=""e4-debrief"">
+        <p>Thank you for participating! This study tested whether people who learn to pick the more complex (or the simpler) option in one kind of image apply the same rule to a different kind. Please do not share this with anyone who might take part.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,simple,"math,shapes",math,shapes,complexity,e4_shapes_math_transfer,,,,,,,,,,,,,,,,,,,,,,,,,,
+yOBdcMlwHAO8ydNI5ufeeCqVzjg2-f0973c9a,0,consent,complex,html-button-response,2686,0,2706,"
+      <div class=""consent"">
+        <h2>Consent</h2>
+        <p>By answering the following questions, you are participating in a study being performed by
+        cognitive scientists in the Stanford Department of Psychology. If you have questions about
+        this research, please contact us at <a href=""mailto:stanfordpsych251@gmail.com"">stanfordpsych251@gmail.com</a>.
+        You must be at least 18 years old to participate. Your participation in this research is
+        voluntary. You may decline to answer any or all of the following questions. You may decline
+        further participation, at any time, without adverse consequences. Your anonymity is assured;
+        the researchers who have requested your participation will not receive any personal
+        information about you.</p>
+      </div>",2.1.0,boger2026-e4-pilot-b,complex,"shapes,math",shapes,math,complexity,e4_shapes_math_transfer,true,,,,,,,,,,,,,,,,,,,,,,,,,

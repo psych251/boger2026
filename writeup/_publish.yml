@@ -1,0 +1,4 @@
+- source: replication-report.qmd
+  posit-connect-cloud:
+    - id: 01a10ac0-946e-c67e-8a75-ecd1ee901563
+      url: https://connect.posit.cloud/veronateo/content/01a10ac0-946e-c67e-8a75-ecd1ee901563
