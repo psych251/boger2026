@@ -483,7 +483,8 @@ This key transfer trial was the main target of our analyses."
 The study ends with a brief survey asking participants to describe the task, guess the purpose of the study, describe their strategy in each phase, complete an attention check, and provide feedback about the study. 
 Participants were told what the study was about at the end of the study, before being redirected to Prolific.
 
-The study takes about 4 minutes to complete.
+<!-- The study takes about 4 minutes to complete. -->
+The study takes about 3 minutes to complete.
 
 
 ### Analysis plan
@@ -619,6 +620,8 @@ if (is.null(pilot_b)) {
   #   print()
 }
 ```
+
+The estimated timing of the study was changed from 4 to 3 minutes, based on the pilot B data.
 
 
 ### Methods addendum (post data collection)
