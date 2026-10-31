@@ -49,7 +49,7 @@ library(jsonlite)
 
 # Must match EXPERIMENT.id in experiment.js, and the --experiment you passed to the export.
 # Phase 2 runs under its own id, so its data never mix with Phase 1's. During the pilots this points at the pilot's id; switch it to the final id for Phase 1 data collection.
-experiment_id        <- "boger2026-e4-pilot-b"
+experiment_id        <- "boger2026-e4-final"
 experiment_id_phase2 <- "boger2026-e4-phase2"
 ```
 
