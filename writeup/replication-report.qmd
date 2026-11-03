@@ -84,7 +84,7 @@ original_p <- original_k / original_n
 ## Project links
 
 - **Original paper:** Boger, T., & Firestone, C. (2026). Complexity is a unified cognitive kind. *Nature Human Behavior*, 2026. <https://doi.org/10.1038/s41562-026-02502-8>
-- **Preregistration:** [OSF registration](https://osf.io/XXXXX) *(registered YYYY-MM-DD, before final data collection)*
+- **Preregistration:** [OSF registration](https://osf.io/rqxpg/) *(registered 2026-10-31, before final data collection)*
 - **Live experiment:** <https://psych251.github.io/boger2026/> 
 - **Repository:** <https://github.com/psych251/boger2026> (experiment code, data, and this report)
 :::
@@ -241,11 +241,11 @@ comparison_plot <- function(..., by_direction = FALSE) {
     mutate(Study = factor(Study, levels = names(studies)),
            direction = factor(direction, levels = c("Both directions", direction_levels)),
            label = sprintf("n = %d", n))
-  fills <- setNames(c("grey55", "#1E6E76", "#B8792A")[seq_along(studies)], names(studies))
+  fills <- setNames(c("grey55", "#4A78B0", "#B8792A")[seq_along(studies)], names(studies))
   dodge <- position_dodge(width = 0.8)
   ggplot(df, aes(x = direction, y = p, fill = Study)) +
     geom_col(position = dodge, width = 0.75) +
-    geom_errorbar(aes(ymin = low, ymax = high), position = dodge, width = 0.2) +
+    geom_linerange(aes(ymin = low, ymax = high), position = dodge) +
     geom_hline(yintercept = 0.5, linetype = "dashed", colour = "grey30") +
     geom_text(aes(y = 0.02, label = label), position = dodge, vjust = 0, size = 3, colour = "white") +
     scale_y_continuous(labels = scales::percent, limits = c(0, 1)) +
@@ -311,7 +311,7 @@ So, I think this paper will be a good starting point for thinking about differen
 The authors of the original paper conducted a suite of experiments to test whether there is a shared representation of complexity across domains (e.g., visual, auditory, linguistic, mathematical, tactile).
 In one set of experiments (Experiments 1-7), they used a learning transfer paradigm in which participants chose between simple and complex stimuli in order to test whether learned associations with complexity transfer to a novel stimulus class. 
 They found that the reward rule people learned in one domain transfers to an unseen domain.
-For example, in Experiment 4, 64.3% of participants transferred the rule between shapes and mathematical expressions (p=0.006 in exact binomial test, N=98, 95% CI [54.0%, 73.7%]).
+For example, in Experiment 4, $64.3\%$ of participants transferred the rule between shapes and mathematical expressions ($p = 0.006$ in exact binomial test, $N = 98$, $95\%$ CI $[54.0\%, 73.7\%]$).
 <!-- , and that transfer rates differed across domain pairings. <removed because the wording suggests that they conducted a stat test to test the differences across experiments, which I don't think they did.> -->
 They also found that such transfer occurs automatically (Experiment 8), and that there were stable individual differences in aesthetic judgments of complexity across different types of information (Experiment 9).
 
@@ -319,9 +319,9 @@ They also found that such transfer occurs automatically (Experiment 8), and that
 **Stimuli and Procedure**
 
 In this project, I focused on Experiment 4, which is a reward-learning task consisting of two parts. 
-In the first part of the study (learning phase), participants completed 12 trials in which they chose between a simple and complex stimulus (e.g., a shape with few smooth edges vs. one with many sharp edges), shown on the left and right sides of the screen. 
+In the first part of the study (learning phase), participants completed $12$ trials in which they chose between a simple and complex stimulus (e.g., a shape with few smooth edges vs. one with many sharp edges), shown on the left and right sides of the screen. 
 They were rewarded for consistently choosing either the simple or complex option, i.e., they learned which type of stimulus was worth more points (with the correct one being randomly assigned to each participant).
-If they chose the correct option, a coin would drop into a piggy bank with a 'ding' sound and they would earn 5 points; if they chose the incorrect option, they would hear a 'buzz' sound and earn 0 points.
+If they chose the correct option, a coin would drop into a piggy bank with a 'ding' sound and they would earn $5$ points; if they chose the incorrect option, they would hear a 'buzz' sound and earn $0$ points.
 In the second part (transfer phase), participants completed one trial in which they chose between a simple and complex stimulus of a different domain (e.g., a mathematical expression with one type of operation vs. one with multiple different operations).
 The learning stimulus class was randomly assigned for each participant.
 Participants completed the study by answering a brief survey asking them to describe the task, guess the purpose of the study, describe their strategy in each phase, and complete an attention check.
@@ -363,7 +363,7 @@ power to detect (Simonsohn, 2015; Experimentology §10.4). Say which approach yo
 what the course's participant budget allowed.
 ::: -->
 
-"Overall, 100 participants completed the task. In addition, two participants were excluded for failing to learn the reward rule, and 3 of the 1,274 remaining trials were excluded for speed.  In total, 64.3% of participants transferred the reward rule between the geometric shapes and the mathematical expressions (P = 0.006 in the exact binomial test, N = 98, 95% CI 54.0–73.7%)."
+"Overall, $100$ participants completed the task. In addition, two participants were excluded for failing to learn the reward rule, and $3$ of the $1{,}274$ remaining trials were excluded for speed.  In total, $64.3\%$ of participants transferred the reward rule between the geometric shapes and the mathematical expressions ($P = 0.006$ in the exact binomial test, $N = 98$, $95\%$ CI $54.0–73.7\%$)."
 
 We will recruit $N=145$ participants (after exclusions) because it gives a power of 93% for the original estimate, or about 80% for a 62% rate (i.e., 84% of the original effect), which is a more conservative estimate of the true effect size.
 
@@ -425,9 +425,9 @@ criteria below" rather than "until the result is clear".
 ::: -->
 
 We will recruit participants on Prolific. 
-We include participants who are based in the US, fluent in English, have an approval rate over 98%, and have completed at least 200 studies. 
-The planned sample size is 145 participants who pass the exclusion criteria (see the `Analysis plan` section below). 
-The stopping rule is to continue collecting data until 145 participants meet the exclusion criteria.
+We include participants who are based in the US, fluent in English, have an approval rate over $98\%$, and have completed at least $200$ studies. 
+The planned sample size is $145$ participants who pass the exclusion criteria (see the `Analysis plan` section below). 
+The stopping rule is to continue collecting data until $145$ participants meet the exclusion criteria.
 
 
 ### Materials
@@ -440,11 +440,11 @@ and note that it was followed precisely, or quote it and point out the exception
 live experiment above rather than pasting screenshots of every screen.
 ::: -->
 
-**Shapes.** The geometric shapes were drawn from Sun & Firestone (2022). There were 60 shapes in total, 30 simple and 30 complex. The simple and complex shapes were shuffled separately and randomly paired together for each participant.
+**Shapes.** The geometric shapes were drawn from Sun & Firestone (2022). There were $60$ shapes in total, $30$ simple and $30$ complex. The simple and complex shapes were shuffled separately and randomly paired together for each participant.
 
 **Mathematical expressions.** "The simple and complex mathematical expressions within each trial contained identical terms, and only differed in their operations. 
-Both expressions contained four unique integers between 11 and 49. 
-The integers were randomly generated, while ensuring they were not divisible by 10 and were not multiples of each other. 
+Both expressions contained four unique integers between $11$ and $49$. 
+The integers were randomly generated, while ensuring they were not divisible by $10$ and were not multiples of each other. 
 The simple mathematical expression merely added the four terms together, while the complex one included a variety of operations (namely, exponentiation, multiplication and division). 
 For example, a simple expression might be $17 + 13 + 24 + 31$, and the accompanying  complex expression would be $\frac{17^{13} \times 24}{31}$." 
 The expressions were generated fresh on each trial. 
@@ -472,19 +472,19 @@ and mathematical expressions."
 In addition, the learning stimulus class was randomly assigned for each participant (either geometric shapes or [mathematical expressions], with the other stimulus class being the transfer stimulus)."
 
 The study begins with a consent form, followed by instructions for the experiment. 
-Participants then completed 12 learning trials. 
+Participants then completed $12$ learning trials. 
 "On each trial, participants chose between two options on the screen (left or right) and received feedback regarding their choice. 
-If participants chose the correct  option, they  heard  a  'ding'  sound,  and  saw  a  virtual  coin drop into a piggy bank, thus increasing the 'coin bank' by 5 points; 
+If participants chose the correct  option, they  heard  a  'ding'  sound,  and  saw  a  virtual  coin drop into a piggy bank, thus increasing the 'coin bank' by $5$ points; 
 if participants chose the incorrect option, they heard a negative buzzer 
 sound, and saw no change in the coin bank." 
-After 12 learning trials, participants were told that the same pattern applies to a new transfer trial, and to take their best guess. 
+After $12$ learning trials, participants were told that the same pattern applies to a new transfer trial, and to take their best guess. 
 "[They] completed a single transfer trial in which a new stimulus class was presented. 
 This key transfer trial was the main target of our analyses."
 The study ends with a brief survey asking participants to describe the task, guess the purpose of the study, describe their strategy in each phase, complete an attention check, and provide feedback about the study. 
 Participants were told what the study was about at the end of the study, before being redirected to Prolific.
 
 <!-- The study takes about 4 minutes to complete. -->
-The study takes about 3 minutes to complete.
+The study takes about $3$ minutes to complete.
 
 
 ### Analysis plan
@@ -508,14 +508,14 @@ no speeded trial at all (every lexical-decision trial timed out, the signature o
 without a keyboard), or if they answered fewer than 6 of the 8 lexical-decision trials
 correctly. -->
 
-**Key analysis of interest.** Whether the proportion of reward-earning answers on the transfer trial is above-chance, tested with an exact binomial probability test (two-sided) against 0.5, $\alpha = 0.05$. The effect size is the proportion of participants choosing the reward-consistent option on the transfer trial, with a 95% confidence interval.
+**Key analysis of interest.** Whether the proportion of reward-earning answers on the transfer trial is above-chance, tested with an exact binomial probability test (two-sided) against $0.5$, $\alpha = 0.05$. The effect size is the proportion of participants choosing the reward-consistent option on the transfer trial, with a 95% confidence interval.
 
 Note: in the original preregistration ([AsPredicted #209989](https://aspredicted.org/7bh9-86xn.pdf)), the authors asked whether the proportion of reward-earning answers on the transfer trial is "above-chance," but in their analysis, they run a two-sided test. We will follow the original analysis and use a two-sided test.
 
 <!-- "If participants who learn that simple (complex) stimuli of one type are worth more points then choose the simple (complex) stimulus of the other type, this would support our hypothesis." -->
 
 
-**Exclusions.** Participants will be excluded if they did not complete the study or earned the reward on less than 50% (fewer than 6 of 12) of the learning trials. We will also exclude trials with a response time below 200 ms (learning accuracy is scored before fast trials are dropped).
+**Exclusions.** Participants will be excluded if they did not complete the study or earned the reward on less than $50\%$ (fewer than $6$ of $12$) of the learning trials. We will also exclude trials with a response time below $200$ ms (learning accuracy is scored before fast trials are dropped).
 
 
 **Exploratory analyses.** We will also explore whether the proportion of reward-earning answers on the transfer trial differs by transfer direction (shapes to math vs. math to shapes). 
@@ -621,19 +621,21 @@ if (is.null(pilot_b)) {
 }
 ```
 
-The estimated timing of the study was changed from 4 to 3 minutes, based on the pilot B data.
+The estimated timing of the study was changed from $4$ to $3$ minutes, based on the pilot B data.
 
 
 ### Methods addendum (post data collection)
 
-::: {.callout-tip icon=false}
+<!-- ::: {.callout-tip icon=false}
 ## Guidance
 
 Leave this section out of the version you preregister. After data collection, report the
 actual sample and any deviation from the plan above.
-:::
+::: -->
 
 #### Actual sample
+
+We recruited a total of $149$ participants, $4$ of which were excluded according to the exclusion criteria, giving us a final sample of $145$ participants.
 
 ```{r}
 #| label: no-data-notice
@@ -715,24 +717,28 @@ cat("\n")
 
 #### Deviations from the preregistered plan
 
-::: {.callout-tip icon=false}
+<!-- ::: {.callout-tip icon=false}
 ## Guidance
 
 Any deviation from the preregistered plan above, or "None". Changes made after seeing data
 belong here even if they seem minor, together with the reason.
-:::
+::: -->
+
+None.
 
 ## Results
 
 ### Data preparation
 
-::: {.callout-tip icon=false}
+<!-- ::: {.callout-tip icon=false}
 ## Guidance
 
 Data preparation follows the analysis plan. Loading and exclusions are done by the shared
 analysis code under Key statistics (open "Show the analysis code"). Describe anything you did to
 the data beyond that.
-:::
+::: -->
+
+No other manipulations to the data were done beyond the exclusions described above.
 
 ### Confirmatory analysis
 
@@ -755,7 +761,7 @@ if (n > 0) {
 
 ### Replication assessment
 
-::: {.callout-tip icon=false}
+<!-- ::: {.callout-tip icon=false}
 ## Guidance
 
 Judge the replication on effect sizes, not only on whether the key test is significant. Compare
@@ -763,7 +769,12 @@ the replication estimate and its interval with the original: does the interval e
 (50%), and does it include the original estimate? A significant result much smaller than the
 original, or a non-significant result whose interval still includes the original effect, are both
 informative and should be reported as such (Experimentology §3.2).
-:::
+::: -->
+
+We find that the proportion of participants choosing the reward-consistent option on the transfer trial is well above chance ($50\%$): $80.7\%$, with $95\%$ CI $[73.3\%, 86.8\%]$, $p<0.001$.
+This is a larger effect than the original study, which found $64.3\%$ of participants choosing the reward-consistent option on the transfer trial, with $95\%$ CI $[54.0\%, 73.7\%]$, $p=0.006$.
+The original finding was replicated; the replication's $95\%$ CI does not include the original estimate.
+
 
 ```{r}
 #| label: comparison
@@ -801,7 +812,40 @@ if (!is.null(rep)) {
 }
 ```
 
-::: {.callout-tip icon=false}
+```{r}
+#| label: comparison-size
+#| eval: !expr have_data
+# How far the replication's effect size is from the original's. Not preregistered: part of the
+# replication assessment, not a confirmatory test.
+#   - Difference in proportions (replication minus original), Wald 95% CI, and Fisher's exact
+#     test of the 2 x 2 table (study by reward-consistent choice).
+#   - 95% prediction interval for the replication's proportion given the original estimate and
+#     both sample sizes (Patil, Peng & Leek, 2016): where the replication should land if both
+#     studies estimate the same true rate.
+if (!is.null(rep)) {
+  diff_ci <- prop.test(c(rep$k, orig$k), c(rep$N, orig$N), correct = FALSE)$conf.int
+  fisher_p <- fisher.test(matrix(c(rep$k, rep$N - rep$k, orig$k, orig$N - orig$k),
+                                 nrow = 2, byrow = TRUE))$p.value
+  pred_int <- orig$estimate + c(-1, 1) * qnorm(0.975) *
+    sqrt(orig$estimate * (1 - orig$estimate) * (1 / orig$N + 1 / rep$N))
+
+  tibble(
+    Measure = c("Difference, replication minus original",
+                "Fisher's exact test, replication vs original",
+                "95% prediction interval from the original",
+                "Replication estimate"),
+    Value = c(sprintf("%+.1f points, 95%% CI [%+.1f, %+.1f]", 100 * (rep$estimate - orig$estimate),
+                      100 * diff_ci[1], 100 * diff_ci[2]),
+              sprintf("p = %s", format.pval(fisher_p, digits = 2, eps = 0.001)),
+              sprintf("[%.1f%%, %.1f%%]", 100 * pred_int[1], 100 * pred_int[2]),
+              sprintf("%.1f%% (%s the prediction interval)", 100 * rep$estimate,
+                      if (rep$estimate >= pred_int[1] & rep$estimate <= pred_int[2]) "inside" else "outside"))
+  ) |>
+    knitr::kable(caption = "Not preregistered: how the replication's effect size compares with the original's. Wald 95% CI for the difference; prediction interval after Patil, Peng & Leek (2016).")
+}
+```
+
+<!-- ::: {.callout-tip icon=false}
 ## Guidance: show the original next to your replication
 
 **Every report should have a figure that puts the original finding and your replication side by
@@ -831,12 +875,12 @@ roughly this order of preference:
 Whichever you choose, use the same measure, scale, condition order and error-bar meaning for
 both panels, label which is which, and cite the source of the original values or figure in the
 caption. If the original reported no variability, say so rather than leaving it out silently.
-:::
+::: -->
 
 ```{r}
 #| label: fig-comparison
 #| eval: !expr have_data
-#| fig-cap: "Percentage of analysed participants choosing the reward-consistent option on the transfer trial, both directions pooled: original study (Boger & Firestone, 2026, Experiment 4; 63 of 98) and Phase 1 replication. Error bars are exact 95% confidence intervals; the dashed line is chance (50%)."
+#| fig-cap: "Percentage of participants choosing the reward-consistent option on the transfer trial, both directions pooled: original study (Boger & Firestone, 2026, Experiment 4; 63 of 98) and Phase 1 replication. Error bars are exact 95% confidence intervals; the dashed line is chance (50%)."
 #| fig-width: 5
 #| fig-height: 4
 comparison_plot(Original = original, `Phase 1: replication` = counts)
@@ -882,44 +926,7 @@ by_direction |>
 comparison_plot(Original = original, `Phase 1: replication` = counts, by_direction = TRUE)
 ```
 
-```{r}
-#| label: learning-phase
-#| eval: !expr have_data
-# Learning-phase performance: proportion of the 12 learning trials rewarded, among completed
-# participants, and among those analysed.
-bind_rows(
-  checked |> mutate(Group = "Completed"),
-  checked |> filter(participant_id %in% keep$participant_id) |> mutate(Group = "Analysed")
-) |>
-  filter(!is.na(learning_reward)) |>
-  group_by(Group = factor(Group, levels = c("Completed", "Analysed"))) |>
-  summarise(N = n(),
-            `Mean rewarded (of 12)` = round(12 * mean(learning_reward), 1),
-            `SD` = round(12 * sd(learning_reward), 1),
-            `Min` = round(12 * min(learning_reward)),
-            .groups = "drop") |>
-  knitr::kable(caption = "Learning trials rewarded, out of 12.")
-```
 
-```{r}
-#| label: data-quality
-#| eval: !expr have_data
-# How the feedback sounds were played on choice trials: "webaudio" is the normal route; an
-# "audio-element:..." value means the browser had not unlocked audio and a fallback was used.
-if ("soundPlayback" %in% names(trials)) {
-  trials |>
-    filter(task == "choice", participant_id %in% complete$participant_id) |>
-    count(`Sound playback` = soundPlayback, name = "Trials") |>
-    knitr::kable(caption = "Feedback-sound playback route on choice trials, completed participants.")
-}
-
-if (nrow(errors) > 0) {
-  errors |> select(any_of(c("at", "trial_index", "message"))) |> head(20) |>
-    knitr::kable(caption = "JavaScript errors reported from participants' browsers.")
-} else {
-  message("No errors were reported from participants' browsers.")
-}
-```
 
 ## Discussion
 
